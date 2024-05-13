@@ -148,7 +148,9 @@ const fonts = {
   `,
 };
 
-export const theme = {
+const theme = {
   colors,
   fonts,
 };
+
+export default theme;
