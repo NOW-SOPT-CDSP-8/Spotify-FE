@@ -22,6 +22,7 @@ const FilterButtonWrapper = styled.section<{ $isSelect: boolean }>`
   padding: 1rem 1.6rem;
   gap: 1rem;
   border-radius: 29px;
+  cursor: pointer;
 
   ${({ $isSelect, theme: { colors } }) =>
     $isSelect
