@@ -1,4 +1,5 @@
 import { css } from "styled-components";
+import mixin from "./mixin";
 
 const colors = {
   green: "#1ED760",
@@ -151,6 +152,7 @@ const fonts = {
 const theme = {
   colors,
   fonts,
+  mixin,
 };
 
 export default theme;
