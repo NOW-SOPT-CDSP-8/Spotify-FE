@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "SF Pro";
+  src: url("./SF-Pro.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Gotham";
+  src: url("./Gotham-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Circular Spotify Text";
+  src: url("./CircularSpotifyTxT-Book.ttf") format("truetype");
+}
