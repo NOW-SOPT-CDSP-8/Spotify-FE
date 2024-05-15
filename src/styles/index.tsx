@@ -1,7 +1,7 @@
-import React from "react";
-import { ThemeProvider } from "styled-components";
-import theme from "./theme";
-import GlobalStyle from "./Globalstyle";
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import theme from './theme';
+import GlobalStyle from './Globalstyle';
 
 interface StylesProps {
   children: React.ReactNode;
