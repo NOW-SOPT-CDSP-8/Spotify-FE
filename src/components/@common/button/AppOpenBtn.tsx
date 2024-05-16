@@ -18,9 +18,9 @@ const AppOpenBtnContainer = styled.article`
 
 const AppOpenBtnText = styled.p`
   color: ${({ theme }) => theme.colors.black};
+  ${({ theme }) => theme.fonts.button};
 `;
 
-AppOpenBtn.Wrapper = AppOpenBtn;
 AppOpenBtn.Text = AppOpenBtnText;
 
 export { AppOpenBtn };

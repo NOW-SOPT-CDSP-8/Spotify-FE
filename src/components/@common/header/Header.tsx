@@ -11,9 +11,7 @@ const Header = () => {
           <IconButtonContainer>
             <HeaderRoot.Icon />
             <AppOpenBtn>
-              <AppOpenBtn.Wrapper>
-                <AppOpenBtn.Text>앱 열기</AppOpenBtn.Text>
-              </AppOpenBtn.Wrapper>
+              <AppOpenBtn.Text>앱 열기</AppOpenBtn.Text>
             </AppOpenBtn>
           </IconButtonContainer>
           <HeaderRoot.Menu />
