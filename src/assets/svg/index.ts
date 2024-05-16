@@ -28,5 +28,6 @@ export { default as IcProfile } from './IcProfile';
 export { default as IcRestorebox } from './IcRestorebox';
 export { default as IcSearch } from './IcSearch';
 export { default as IcShare } from './IcShare';
+export { default as IcSubscribe } from './IcSubscribe';
 export { default as IcTicket } from './IcTicket';
 export { default as IcUsebox } from './IcUsebox';
