@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import RecommendStation from '../../components/homePage/RecommendStation';
 import ExploreSection from './ExploreSection';
+import ArtistSection from './ArtistSection';
 
 interface HomePageProps {}
 
@@ -9,6 +10,7 @@ const HomePage = ({}: HomePageProps) => {
     <HomePageWrapper>
       <RecommendStation />
       <ExploreSection />
+      <ArtistSection />
     </HomePageWrapper>
   );
 };
