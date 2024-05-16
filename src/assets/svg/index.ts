@@ -1,4 +1,8 @@
 export { default as IcArrow } from './IcArrow';
+export { default as IcArtist1 } from './IcArtist1';
+export { default as IcArtist2 } from './IcArtist2';
+export { default as IcArtist3 } from './IcArtist3';
+export { default as IcArtist4 } from './IcArtist4';
 export { default as IcBack } from './IcBack';
 export { default as IcCardbox } from './IcCardbox';
 export { default as IcClose } from './IcClose';
