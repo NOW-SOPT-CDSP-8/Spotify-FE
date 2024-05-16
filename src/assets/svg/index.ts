@@ -23,4 +23,5 @@ export { default as IcRestorebox } from './IcRestorebox';
 export { default as IcSearch } from './IcSearch';
 export { default as IcShare } from './IcShare';
 export { default as IcTicket } from './IcTicket';
+export { default as IcUnderbar } from './IcUnderbar';
 export { default as IcUsebox } from './IcUsebox';
