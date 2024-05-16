@@ -29,10 +29,12 @@ const PlayListItem = (props: PlayListItemProps) => {
 export default PlayListItem;
 
 const PlayListItemWrapper = styled.div`
-  display: flex;
+  ${({ theme }) =>
+    theme.mixin.flexBox({
+      align: 'center',
+    })};
   width: 33.5rem;
   height: 4.6rem;
-  align-items: center;
   gap: 0.4rem;
   flex-shrink: 0;
 `;
@@ -46,18 +48,19 @@ const ImgWrapper = styled.div`
 `;
 
 const TextWrapper = styled.div`
-  display: flex;
+  ${({ theme }) =>
+    theme.mixin.flexBox({
+      direction: 'column',
+      align: 'flex-start',
+    })};
   width: 25rem;
   padding: 0px 1.2rem;
-  flex-direction: column;
-  align-items: flex-start;
   gap: 0.2rem;
   flex-shrink: 0;
 `;
 
 const Title = styled.div`
   width: 25.5rem;
-  font-weight: bold;
   ${({ theme }) => theme.fonts.detail1};
   color: ${({ theme }) => theme.colors.white};
 `;
