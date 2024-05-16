@@ -7,8 +7,9 @@ const ArtistSection = () => {
       <ArtistIcon />
       <ArtistDetailContainer>
         <ArtistName>Peggy Gou</ArtistName>
-        {/* 정안TODO 장르 부분 디쟌쌤들 연락오면 폰트 바꾸기 */}
-        <SubText>장르 하우스 뮤직, 테크노</SubText>
+        <TextContainer>
+          <SubText>장르 하우스 뮤직, 테크노</SubText>
+        </TextContainer>
       </ArtistDetailContainer>
     </ArtistSectionWrapper>
   );
@@ -38,9 +39,9 @@ const ArtistName = styled.div`
 `;
 
 const SubText = styled.p`
-  ${({ theme }) => theme.fonts.caption2};
+  ${({ theme }) => theme.fonts.caption5};
   color: ${({ theme }) => theme.colors.white};
-  margin-left: 0.8rem;
+  margin-left: 0%.8rem;
 `;
 
 const ArtistDetailContainer = styled.div`
@@ -52,4 +53,9 @@ const ArtistDetailContainer = styled.div`
     })};
   gap: 0.2rem;
   margin-top: 1rem;
+`;
+
+const TextContainer = styled.div`
+  ${({ theme }) => theme.mixin.flexCenter({ direction: 'row' })};
+  margin-left: 0.8rem;
 `;
