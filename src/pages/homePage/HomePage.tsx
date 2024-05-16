@@ -1,7 +1,7 @@
 interface HomePageProps {}
 
 const HomePage = ({}: HomePageProps) => {
-  return (<div></div>);
+  return <></>;
 };
 
 export default HomePage;

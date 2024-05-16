@@ -9,6 +9,7 @@ export { default as IcInfo } from './IcInfo';
 export { default as IcLike } from './IcLike';
 export { default as IcLocation } from './IcLocation';
 export { default as IcLogo2 } from './IcLogo2';
+export { default as IcLogoSingle } from './IcLogoSingle';
 export { default as IcLogobox } from './IcLogobox';
 export { default as IcLogopink } from './IcLogopink';
 export { default as IcMenu } from './IcMenu';
