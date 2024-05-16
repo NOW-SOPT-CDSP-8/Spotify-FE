@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import RecommendStation from '../../components/homePage/RecommendStation';
-import ExploreSection from './ExploreSection';
-import ArtistSection from './ArtistSection';
+import ExploreSection from '../../components/homePage/ExploreSection';
+import ArtistSection from '../../components/homePage/ArtistSection';
+import RecommendGenre from '../../components/homePage/RecommendGenre';
+import HouseMusicSection from '../../components/homePage/HouseMusicSection';
 
 interface HomePageProps {}
 
@@ -11,6 +13,8 @@ const HomePage = ({}: HomePageProps) => {
       <RecommendStation />
       <ExploreSection />
       <ArtistSection />
+      <RecommendGenre />
+      <HouseMusicSection />
     </HomePageWrapper>
   );
 };
