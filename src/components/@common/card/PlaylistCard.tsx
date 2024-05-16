@@ -31,8 +31,6 @@ export default PlaylistCard;
 
 const PlaylistCardWrapper = styled.section`
   width: 14.6rem;
-
-  background: ${({ theme }) => theme.colors.gray900};
 `;
 
 interface PlaylistCardImgProps {
@@ -40,7 +38,7 @@ interface PlaylistCardImgProps {
   marginBottom?: string;
 }
 const PlaylistCardImg = styled.img<PlaylistCardImgProps>`
-  width: 100%;
+  width: 14.6rem;
   height: 14.6rem;
   margin-bottom: ${({ marginBottom }) => marginBottom};
   border-radius: ${({ borderRadius }) => borderRadius};

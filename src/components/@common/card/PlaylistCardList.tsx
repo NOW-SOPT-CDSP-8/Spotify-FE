@@ -1,19 +1,46 @@
 import PlaylistCard from './PlaylistCard';
+import styled from 'styled-components';
 
-const PlaylistCardList = () => {
+type listData = {
+  imgUrl: string;
+  title: string;
+  description?: string;
+};
+
+interface PlaylistCardListProps {
+  datas: listData[];
+}
+
+const PlaylistCardList = ({ datas }: PlaylistCardListProps) => {
   return (
-    <>
-      <PlaylistCard hasDescription={true}>
-        <PlaylistCard.Img src='https://pbs.twimg.com/media/FYznstoXEAATx8k.jpg' />
-        <PlaylistCard.Title>THE TORTURED POETS Department</PlaylistCard.Title>
-        <PlaylistCard.Description>팔로워 80,504명</PlaylistCard.Description>
-      </PlaylistCard>
-      <PlaylistCard hasDescription={false}>
-        <PlaylistCard.Img src='https://pbs.twimg.com/media/FYznstoXEAATx8k.jpg' />
-        <PlaylistCard.Title>Minimalist Poets</PlaylistCard.Title>
-      </PlaylistCard>
-    </>
+    <PlaylistCardWrapper>
+      {datas.map((data) => (
+        <PlaylistCard hasDescription={data.description ? true : false}>
+          <PlaylistCard.Img src={data.imgUrl} />
+          <PlaylistCard.Title>{data.title}</PlaylistCard.Title>
+          {data.description && (
+            <PlaylistCard.Description>
+              {data.description}
+            </PlaylistCard.Description>
+          )}
+        </PlaylistCard>
+      ))}
+    </PlaylistCardWrapper>
   );
 };
 
 export default PlaylistCardList;
+
+const PlaylistCardWrapper = styled.section`
+  ${({ theme }) => theme.mixin.flexBox({ align: 'start', justify: 'start' })};
+  gap: 1.5rem;
+  width: 37.5rem;
+  margin-top: 2rem;
+  padding: 0 1.5rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
