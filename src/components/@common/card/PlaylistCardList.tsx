@@ -34,7 +34,6 @@ export default PlaylistCardList;
 const PlaylistCardWrapper = styled.section`
   ${({ theme }) => theme.mixin.flexBox({ align: 'start', justify: 'start' })};
   gap: 1.5rem;
-  width: 37.5rem;
   margin-top: 2rem;
   padding: 0 1.5rem;
   overflow-x: scroll;
