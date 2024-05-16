@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import PlaylistCardList from '../@common/card/PlaylistCardList';
-import { predata } from '../../mocks/mockData';
+import { predata2 } from '../../mocks/mockData';
 
 interface RecommendStationProps {}
 
@@ -14,7 +14,7 @@ const RecommendStation = ({}: RecommendStationProps) => {
       </TitleContainer>
       {/* 정안TODO predata대신 서버에서 GET해오기 */}
       <PlaylistCardListContainer>
-        <PlaylistCardList datas={predata} />
+        <PlaylistCardList datas={predata2} />
       </PlaylistCardListContainer>
     </RecommendStationWrapper>
   );
