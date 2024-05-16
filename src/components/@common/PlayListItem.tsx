@@ -30,34 +30,33 @@ export default PlayListItem;
 
 const PlayListItemWrapper = styled.div`
   display: flex;
-  width: 335px;
-  height: 46px;
+  width: 33.5rem;
+  height: 4.6rem;
   align-items: center;
-  gap: 4px;
+  gap: 0.4rem;
   flex-shrink: 0;
-  background-color: black;
 `;
 
 const ImgWrapper = styled.div`
   img {
-    width: 46px;
-    height: 46px;
+    width: 4.6rem;
+    height: 4.6rem;
     flex-shrink: 0;
   }
 `;
 
 const TextWrapper = styled.div`
   display: flex;
-  width: 250px;
-  padding: 0px 12px;
+  width: 25rem;
+  padding: 0px 1.2rem;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2px;
+  gap: 0.2rem;
   flex-shrink: 0;
 `;
 
 const Title = styled.div`
-  width: 255px;
+  width: 25.5rem;
   font-weight: bold;
   ${({ theme }) => theme.fonts.detail1};
   color: ${({ theme }) => theme.colors.white};
@@ -69,7 +68,7 @@ const Artist = styled.div`
 `;
 
 const MenuButton = styled.div`
-  width: 17px;
-  height: 17px;
+  width: 1.7rem;
+  height: 1.7rem;
   flex-shrink: 0;
 `;
