@@ -1,7 +1,7 @@
 interface PlaylistPageProps {}
 
 const PlaylistPage = ({}: PlaylistPageProps) => {
-  return ;
+  return;
 };
 
 export default PlaylistPage;
