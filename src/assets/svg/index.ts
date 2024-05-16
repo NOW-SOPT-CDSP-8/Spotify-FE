@@ -30,4 +30,5 @@ export { default as IcSearch } from './IcSearch';
 export { default as IcShare } from './IcShare';
 export { default as IcSubscribe } from './IcSubscribe';
 export { default as IcTicket } from './IcTicket';
+export { default as IcUnderbar } from './IcUnderbar';
 export { default as IcUsebox } from './IcUsebox';
