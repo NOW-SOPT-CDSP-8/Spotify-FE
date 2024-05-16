@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 import { AppOpenBtn } from '../button/AppOpenBtn';
 import { HeaderRoot } from './HeaderWrapper';
+import Menu from '../menu/Menu';
+import useMenuOpen from '../../../hooks/menu/useMenuOpen';
 
 const Header = () => {
+  const { visible, handleToggleMenu } = useMenuOpen();
   return (
     <>
       <HeaderRoot>
@@ -14,9 +17,10 @@ const Header = () => {
               <AppOpenBtn.Text>앱 열기</AppOpenBtn.Text>
             </AppOpenBtn>
           </IconButtonContainer>
-          <HeaderRoot.Menu />
+          <HeaderRoot.Menu onClick={handleToggleMenu} />
         </HeaderMenuContainer>
       </HeaderRoot>
+      {visible && <Menu handleToggleMenu={handleToggleMenu} />}
     </>
   );
 };

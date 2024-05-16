@@ -1,20 +1,26 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import { IcClose, IcGo, IcUnderbar } from '../../../assets/svg';
-import { useMobile } from '../../../utils/useMobile';
+import { useNavigate } from 'react-router-dom';
+import { PATH } from '../../../router/route';
 
-interface MenuProps {}
+interface MenuProps {
+  handleToggleMenu: () => void;
+}
 
-const Menu = ({}: MenuProps) => {
-  useMobile();
-  const [visible, setVisible] = useState(false);
-
+const Menu = ({ handleToggleMenu }: MenuProps) => {
+  const navigate = useNavigate();
   return (
     <>
       <MenuWrapper>
-        <CloseBtn />
+        <CloseBtn onClick={handleToggleMenu} />
         <TitleContainer>
-          <MainTitleGoIconContainer>
+          {/* TODO 채현이가 navigate 훅 만들어 주면 추후 수정 */}
+          <MainTitleGoIconContainer
+            onClick={() => {
+              handleToggleMenu();
+              navigate(PATH.MYPAGE);
+            }}
+          >
             <MainTitle>계정 보기</MainTitle>
             <AccountGoIcon />
           </MainTitleGoIconContainer>
@@ -41,6 +47,9 @@ const MenuWrapper = styled.section`
   background-color: ${({ theme }) => theme.colors.black};
   width: 100%;
   height: 100vh;
+  top: 0;
+  z-index: 99;
+  position: fixed;
 `;
 
 const CloseBtn = styled(IcClose)`
