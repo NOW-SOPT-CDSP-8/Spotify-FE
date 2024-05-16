@@ -4,6 +4,8 @@ import ExploreSection from '../../components/homePage/ExploreSection';
 import ArtistSection from '../../components/homePage/ArtistSection';
 import RecommendGenre from '../../components/homePage/RecommendGenre';
 import HouseMusicSection from '../../components/homePage/HouseMusicSection';
+import SimilarArtist from '../../components/homePage/SimilarArtist';
+import Subscribe from '../../components/homePage/Subscribe';
 
 interface HomePageProps {}
 
@@ -15,6 +17,8 @@ const HomePage = ({}: HomePageProps) => {
       <ArtistSection />
       <RecommendGenre />
       <HouseMusicSection />
+      <SimilarArtist />
+      <Subscribe />
     </HomePageWrapper>
   );
 };
