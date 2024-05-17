@@ -37,6 +37,7 @@ export default CategoryFilter;
 const FilterWrapper = styled.section`
   margin: 1.3rem 0;
   padding: 0 1.5rem;
+
   ${({ theme }) => theme.mixin.flexBox({ align: 'start', justify: 'start' })};
   gap: 0.8rem;
   white-space: nowrap;
@@ -44,6 +45,6 @@ const FilterWrapper = styled.section`
   overflow-x: scroll;
   overflow-y: hidden;
   &::-webkit-scrollbar {
-    display: none; //
+    display: none;
   }
 `;
