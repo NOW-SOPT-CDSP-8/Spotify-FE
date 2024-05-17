@@ -1,4 +1,6 @@
 import PlaylistCardList from '../../components/@common/card/PlaylistCardList';
+import CategoryFilter from '../../components/categoryPage/CategoryFilter';
+import CategoryHeader from '../../components/categoryPage/CategoryHeader';
 
 interface CategoryPageProps {}
 
@@ -64,6 +66,8 @@ const predata2 = [
 const CategoryPage = ({}: CategoryPageProps) => {
   return (
     <>
+      <CategoryHeader />
+      <CategoryFilter />
       <PlaylistCardList datas={predata} />
       <PlaylistCardList datas={predata2} />
     </>

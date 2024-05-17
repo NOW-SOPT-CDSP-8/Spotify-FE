@@ -1,6 +1,7 @@
 export { default as IcArrow } from './IcArrow';
 export { default as IcBack } from './IcBack';
 export { default as IcCardbox } from './IcCardbox';
+export { default as IcCategoryheader } from './IcCategoryheader';
 export { default as IcClose } from './IcClose';
 export { default as IcDiamondbox } from './IcDiamondbox';
 export { default as IcEditbox } from './IcEditbox';
@@ -9,9 +10,9 @@ export { default as IcInfo } from './IcInfo';
 export { default as IcLike } from './IcLike';
 export { default as IcLocation } from './IcLocation';
 export { default as IcLogo2 } from './IcLogo2';
-export { default as IcLogoSingle } from './IcLogoSingle';
 export { default as IcLogobox } from './IcLogobox';
 export { default as IcLogopink } from './IcLogopink';
+export { default as IcLogoSingle } from './IcLogoSingle';
 export { default as IcMenu } from './IcMenu';
 export { default as IcMenu2 } from './IcMenu2';
 export { default as IcMenuVertical } from './IcMenuVertical';
