@@ -8,6 +8,7 @@ export { default as IcGo } from './IcGo';
 export { default as IcInfo } from './IcInfo';
 export { default as IcLike } from './IcLike';
 export { default as IcLocation } from './IcLocation';
+export { default as IcLogo } from './IcLogo';
 export { default as IcLogo2 } from './IcLogo2';
 export { default as IcLogoSingle } from './IcLogoSingle';
 export { default as IcLogobox } from './IcLogobox';
