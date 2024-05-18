@@ -19,13 +19,13 @@ const fonts = {
     font-family: 'SF Pro';
     font-weight: 510;
     font-size: 3rem;
-    line-height: auto;
+    line-height: normal;
   `,
   title2: css`
     font-family: 'SF Pro';
     font-weight: 510;
     font-size: 2.8rem;
-    line-height: auto;
+    line-height: normal;
   `,
   title3: css`
     font-family: 'SF Pro';
@@ -45,35 +45,42 @@ const fonts = {
     font-size: 1.7rem;
     line-height: 140%;
   `,
+  title6: css`
+    font-family: 'Circular Spotify Text';
+    font-size: 2.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  `,
   headline1: css`
     font-family: 'SF Pro';
     font-weight: 590;
     font-size: 1.8rem;
-    line-height: auto;
+    line-height: normal;
   `,
   headline2: css`
     font-family: 'SF Pro';
     font-weight: 510;
     font-size: 1.7rem;
-    line-height: auto;
+    line-height: normal;
   `,
   body1: css`
     font-family: 'SF Pro';
     font-weight: 274;
     font-size: 1.6rem;
-    line-height: auto;
+    line-height: normal;
   `,
   body2_medi: css`
     font-family: 'SF Pro';
     font-weight: 510;
     font-size: 1.5rem;
-    line-height: auto;
+    line-height: normal;
   `,
   body2_reg: css`
     font-family: 'SF Pro';
     font-weight: 400;
     font-size: 1.5rem;
-    line-height: auto;
+    line-height: normal;
   `,
   body3_semi: css`
     font-family: 'SF Pro';
@@ -91,7 +98,7 @@ const fonts = {
     font-family: 'SF Pro';
     font-weight: 400;
     font-size: 1.3rem;
-    line-height: auto;
+    line-height: normal;
   `,
   body4: css`
     font-family: 'SF Pro';
@@ -103,13 +110,13 @@ const fonts = {
     font-family: 'SF Pro';
     font-weight: 400;
     font-size: 1.2rem;
-    line-height: auto;
+    line-height: normal;
   `,
   caption2: css`
     font-family: 'SF Pro';
     font-weight: 400;
     font-size: 1.1rem;
-    line-height: auto;
+    line-height: normal;
   `,
   caption3: css`
     font-family: 'SF Pro';
@@ -127,7 +134,8 @@ const fonts = {
     font-family: 'SF Pro';
     font-weight: 510;
     font-size: 1.9rem;
-    line-height: auto;
+    line-height: normal;
+    letter-spacing: -0.76px;
   `,
   button: css`
     font-family: 'SF Pro';
@@ -139,13 +147,28 @@ const fonts = {
     font-family: 'Circular Spotify Text';
     font-weight: 400;
     font-size: 1.6rem;
-    line-height: auto;
+    line-height: normal;
   `,
   detail2: css`
     font-family: 'Circular Spotify Text';
     font-weight: 400;
     font-size: 1.3rem;
-    line-height: auto;
+    line-height: normal;
+    letter-spacing: -0.26px;
+  `,
+  detail3_medi: css`
+    font-family: 'Circular Spotify Text';
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  `,
+  detail3_bold: css`
+    font-family: 'Circular Spotify Text';
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
   `,
 };
 
