@@ -1,4 +1,3 @@
-
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { PATH } from './route';
 import HomePage from '../pages/homePage/HomePage';
