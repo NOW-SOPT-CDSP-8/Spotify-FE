@@ -3,16 +3,47 @@ import SubscribeInfo from './SubscribeInfo';
 import SubscribeCardInfo from './SubscribeCardInfo';
 import InfoButton from './InfoButton';
 import { IcFlatrate, IcPayment } from '../../assets/svg';
+import { useEffect, useState } from 'react';
+import { fetchProfileData } from './mypage_api';
 
 const Subscribe = () => {
+  const [memberName, setMemberName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [cardData, setCardData] = useState({});
+  const [cardName, setCardName] = useState('');
+  const [cardNumber, setCardNumber] = useState('');
+  const [cardType, setCardType] = useState('');
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await fetchProfileData();
+      if (data) {
+        const { memberName, card } = data;
+
+        const firstName = memberName.slice(1);
+        const lastName = memberName[0];
+
+        setMemberName(memberName);
+        setFirstName(firstName);
+        setLastName(lastName);
+        setCardName(card.cardName);
+        setCardType(card.cardType);
+        setCardNumber(card.cardNumber);
+      }
+    };
+
+    getData();
+  }, []);
+
   return (
     <SubscribeWrapper>
       <InfoContainer>
-        <SubscribeInfo lastName='성' firstName='이름' />
+        <SubscribeInfo lastName={lastName} firstName={firstName} />
         <SubscribeCardInfo
-          cardName='토스뱅크카드'
-          cardType='체크'
-          cardNumber='3705'
+          cardName={cardName}
+          cardType={cardType}
+          cardNumber={cardNumber}
         />
         <InfoButton />
       </InfoContainer>
