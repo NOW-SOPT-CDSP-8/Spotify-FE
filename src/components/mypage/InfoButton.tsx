@@ -24,9 +24,9 @@ const InfoButtonWrapper = styled.div`
     theme.mixin.flexCenter({
       direction: 'row',
     })};
-  gap: 11px;
-  margin-top: 16.2px;
-  margin-bottom: 17px;
+  gap: 1.1rem;
+  margin-top: 1.62rem;
+  margin-bottom: 1.7rem;
 `;
 
 const InfoButtonContainer = styled.div`
@@ -35,21 +35,21 @@ const InfoButtonContainer = styled.div`
       direction: 'column',
     })};
   gap: 0.5rem;
-  width: 161px;
-  height: 74px;
+  width: 16.1rem;
+  height: 7.4rem;
   flex-shrink: 0;
-  border-radius: 7px;
+  border-radius: 0.7rem;
   background: var(--gray500, #222);
 `;
 
 const EditIcon = styled(IcEditbox)`
-  width: 30px;
-  height: 30px;
+  width: 3rem;
+  height: 3rem;
 `;
 
 const RestoreboxIcon = styled(IcRestorebox)`
-  width: 30px;
-  height: 30px;
+  width: 3rem;
+  height: 3rem;
 `;
 
 const InfoText = styled.p`

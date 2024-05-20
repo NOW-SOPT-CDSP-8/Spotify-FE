@@ -39,7 +39,7 @@ const SubscribeInfoWrapper = styled.div`
     })};
   width: 100%;
   gap: 0.4rem;
-s`;
+`;
 
 const NameContainer = styled.div`
   ${({ theme }) =>
@@ -58,12 +58,12 @@ const TextContainer = styled.div`
       direction: 'row',
       align: 'center',
     })};
-  gap: 7px;
+  gap: 0.7rem;
 `;
 
 const NameIcon = styled(IcName)`
-  width: 32.136px;
-  height: 32.136px;
+  width: 3.2136rem;
+  height: 3.2136rem;
   flex-shrink: 0;
 `;
 
@@ -72,8 +72,8 @@ const LastNameText = styled.p`
   color: ${({ theme }) => theme.colors.black};
   z-index: 1;
   position: absolute;
-  margin-left: 9px;
-  margin-top: 3px;
+  margin-left: 0.9rem;
+  margin-top: 0.3rem;
 `;
 
 const FirstNameText = styled.p`
@@ -82,8 +82,8 @@ const FirstNameText = styled.p`
 `;
 
 const LogoPinkIcon = styled(IcLogopink)`
-  width: 28px;
-  height: 28px;
+  width: 2.8rem;
+  height: 2.8rem;
 `;
 
 const SubscribeTextContainer = styled.div`
@@ -112,8 +112,8 @@ const TItleText = styled.p`
 `;
 
 const ArrowIcon = styled(IcArrow)`
-  width: 17px;
-  height: 20px;
+  width: 1.7rem;
+  height: 2rem;
   color: ${({ theme }) => theme.colors.gray200};
 `;
 

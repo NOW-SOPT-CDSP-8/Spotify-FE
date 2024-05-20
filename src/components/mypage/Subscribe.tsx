@@ -25,10 +25,10 @@ const Subscribe = () => {
 export default Subscribe;
 
 const SubscribeWrapper = styled.div`
-  margin-left: 8px;
-  margin-right: 9px;
+  margin-left: 0.8rem;
+  margin-right: 0.9rem;
   flex-shrink: 0;
-  border-radius: 7px;
+  border-radius: 0.7rem;
   background: ${({ theme }) => theme.colors.gray700};
   ${({ theme }) =>
     theme.mixin.flexBox({
@@ -36,11 +36,11 @@ const SubscribeWrapper = styled.div`
       align: 'center',
     })};
   color: ${({ theme }) => theme.colors.white};
-  gap: 22px;
+  gap: 2.2rem;
 `;
 
 const InfoContainer = styled.div`
-  border-radius: 7px;
-  padding: 10px 12px 17px 12px;
+  border-radius: 0.7rem;
+  padding: 1rem 1.2rem 1.7rem 1.2rem;
   background: var(--gray700, #181818);
 `;

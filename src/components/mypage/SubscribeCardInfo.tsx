@@ -33,9 +33,9 @@ const SubscribeCardInfoWrapper = styled.div`
     theme.mixin.flexCenter({
       direction: 'row',
     })};
-  gap: 95px;
-  margin-top: 16.35px;
-  height: 58px;
+  gap: 9.5rem;
+  margin-top: 1.635rem;
+  height: 5.8rem;
 `;
 
 const CardContainer = styled.div`
@@ -49,8 +49,8 @@ const CardContainer = styled.div`
 
 const ImgContainer = styled.div`
   img {
-    width: 37px;
-    height: 58px;
+    width: 3.7rem;
+    height: 5.8rem;
     flex-shrink: 0;
   }
 `;
@@ -78,9 +78,9 @@ const CardUpdateBtn = styled.button`
     theme.mixin.flexCenter({
       direction: 'column',
     })};
-  padding: 5px 16px;
-  gap: 10px;
-  border-radius: 29px;
+  padding: 0.5rem 1.6rem;
+  gap: 1rem;
+  border-radius: 2.9rem;
   background: ${({ theme }) => theme.colors.gray400};
   color: ${({ theme }) => theme.colors.gray200};
   ${({ theme }) => theme.fonts.button};
