@@ -12,16 +12,17 @@ const PlayListItem = (props: PlayListItemProps) => {
   const { title, artist, onClick } = props;
   return (
     <PlayListItemWrapper onClick={onClick}>
-      <ImgWrapper>
-        <img src='src/assets/png/MusicCardImg.png' alt='Album cover' />
-      </ImgWrapper>
-      <TextWrapper>
-        <Title>{title}</Title>
-        <Artist>{artist}</Artist>
-      </TextWrapper>
-      <MenuButton>
-        <IcOption />
-      </MenuButton>
+      <MusicContainer>
+        <ImgContainer>
+          <img src='src/assets/png/MusicCardImg.png' alt='Album cover' />
+        </ImgContainer>
+        <TextContainer>
+          <Title>{title}</Title>
+          <Artist>{artist}</Artist>
+        </TextContainer>
+      </MusicContainer>
+
+      <MenuIcon />
     </PlayListItemWrapper>
   );
 };
@@ -30,8 +31,10 @@ export default PlayListItem;
 
 const PlayListItemWrapper = styled.div`
   ${({ theme }) =>
-    theme.mixin.flexBox({
+    theme.mixin.flexCenter({
+      direction: 'row',
       align: 'center',
+      justify: 'space-around',
     })};
   width: 33.5rem;
   height: 4.6rem;
@@ -39,7 +42,18 @@ const PlayListItemWrapper = styled.div`
   flex-shrink: 0;
 `;
 
-const ImgWrapper = styled.div`
+const MusicContainer = styled.div`
+  ${({ theme }) =>
+    theme.mixin.flexBox({
+      direction: 'row',
+      align: 'center',
+    })};
+  width: 31.4rem;
+  height: 4.6rem;
+  flex-shrink: 0;
+`;
+
+const ImgContainer = styled.div`
   img {
     width: 4.6rem;
     height: 4.6rem;
@@ -47,7 +61,7 @@ const ImgWrapper = styled.div`
   }
 `;
 
-const TextWrapper = styled.div`
+const TextContainer = styled.div`
   ${({ theme }) =>
     theme.mixin.flexBox({
       direction: 'column',
@@ -60,7 +74,6 @@ const TextWrapper = styled.div`
 `;
 
 const Title = styled.div`
-  width: 25.5rem;
   ${({ theme }) => theme.fonts.detail1};
   color: ${({ theme }) => theme.colors.white};
 `;
@@ -70,7 +83,7 @@ const Artist = styled.div`
   color: ${({ theme }) => theme.colors.gray200};
 `;
 
-const MenuButton = styled.div`
+const MenuIcon = styled(IcOption)`
   width: 1.7rem;
   height: 1.7rem;
   flex-shrink: 0;
