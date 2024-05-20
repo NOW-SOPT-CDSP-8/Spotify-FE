@@ -123,6 +123,13 @@ const fonts = {
     font-size: 1.9rem;
     line-height: 140%;
   `,
+  caption5: css`
+    font-family: 'SF Pro';
+    font-size: 1.1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  `,
   category: css`
     font-family: 'SF Pro';
     font-weight: 510;

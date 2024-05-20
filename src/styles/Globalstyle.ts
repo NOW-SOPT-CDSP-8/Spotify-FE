@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -7,6 +7,10 @@ const GlobalStyle = createGlobalStyle`
     
     * {
     box-sizing: border-box;
+    }
+    
+    body {
+        background-color: ${({ theme }) => theme.colors.gray900};;
     }
 
     html {
