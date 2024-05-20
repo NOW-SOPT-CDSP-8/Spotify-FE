@@ -1,4 +1,9 @@
+import styled from 'styled-components';
 import PlaylistCardList from '../../components/@common/card/PlaylistCardList';
+import CategoryFilter from '../../components/categoryPage/CategoryFilter';
+import CategoryHeader from '../../components/categoryPage/CategoryHeader';
+import CategoryTitle from '../../components/categoryPage/CategoryTitle';
+import CategoryRank from '../../components/categoryPage/CategoryRank';
 
 interface CategoryPageProps {}
 
@@ -64,10 +69,33 @@ const predata2 = [
 const CategoryPage = ({}: CategoryPageProps) => {
   return (
     <>
-      <PlaylistCardList datas={predata} />
-      <PlaylistCardList datas={predata2} />
+      <CategoryHeader />
+      <CategoryFilter />
+      <CategoryTitle>플레이리스트</CategoryTitle>
+      <CategoryContent>
+        <PlaylistCardList datas={predata} />
+      </CategoryContent>
+      <CategoryTitle>최신 팝 음악</CategoryTitle>
+      <CategoryContent>
+        <PlaylistCardList datas={predata} />
+      </CategoryContent>
+      <CategoryTitle>인기 팝 음악</CategoryTitle>
+      <CategoryRank />
     </>
   );
 };
 
 export default CategoryPage;
+
+const CategoryContent = styled.section`
+  margin: 1.3rem 0;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;

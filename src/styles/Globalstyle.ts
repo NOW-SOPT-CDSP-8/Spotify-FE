@@ -20,8 +20,10 @@ const GlobalStyle = createGlobalStyle`
 
     font-size: 62.5%;
     user-select: none;
-    }
 
+    background-color: ${({ theme }) => theme.colors.gray900};;
+
+    }
     ul, li {
     padding-left: 0;
     list-style: none;
