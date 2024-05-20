@@ -9,13 +9,17 @@ type listData = {
 
 interface PlaylistCardListProps {
   datas: listData[];
+  onClick?: () => void;
 }
 
-const PlaylistCardList = ({ datas }: PlaylistCardListProps) => {
+const PlaylistCardList = ({ datas, onClick }: PlaylistCardListProps) => {
   return (
     <PlaylistCardWrapper>
       {datas.map((data) => (
-        <PlaylistCard hasDescription={data.description ? true : false}>
+        <PlaylistCard
+          hasDescription={data.description ? true : false}
+          onClick={onClick}
+        >
           <PlaylistCard.Img src={data.imgUrl} />
           <PlaylistCard.Title>{data.title}</PlaylistCard.Title>
           {data.description && (
