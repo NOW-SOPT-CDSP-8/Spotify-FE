@@ -1,17 +1,9 @@
 import { useState } from 'react';
 import FilterButton from '../@common/FilterButton';
 import styled from 'styled-components';
+import { filters } from '../../constants/categoryFilter';
 
 const CategoryFilter = () => {
-  const filters = [
-    '전체',
-    '00’s & 10’s',
-    '90’s',
-    '80’s',
-    '70’s',
-    '필리핀 팝',
-    '라틴 팝',
-  ];
   const [selectedFilter, setSelectedFilter] = useState<string>('전체');
 
   const handleFilterClick = (filter: string) => {
