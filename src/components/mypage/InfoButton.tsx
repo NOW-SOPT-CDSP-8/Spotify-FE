@@ -39,7 +39,7 @@ const InfoButtonContainer = styled.div`
   height: 7.4rem;
   flex-shrink: 0;
   border-radius: 0.7rem;
-  background: var(--gray500, #222);
+  background: ${({ theme }) => theme.colors.gray500};
 `;
 
 const EditIcon = styled(IcEditbox)`

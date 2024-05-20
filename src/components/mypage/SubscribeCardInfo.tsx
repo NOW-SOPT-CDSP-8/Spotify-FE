@@ -64,12 +64,20 @@ const TextContainer = styled.div`
 `;
 
 const CardName = styled.p`
-  ${({ theme }) => theme.fonts.body2_medi};
+  line-height: 140%;
+  display: block;
+  font-family: 'SF Pro';
+  font-weight: 510;
+  font-size: 1.5rem;
   color: ${({ theme }) => theme.colors.gray200};
 `;
 
 const CardInfo = styled.p`
-  ${({ theme }) => theme.fonts.body2_reg};
+  line-height: 140%;
+  display: block;
+  font-family: 'SF Pro';
+  font-weight: 510;
+  font-size: 1.5rem;
   color: ${({ theme }) => theme.colors.gray300};
 `;
 
