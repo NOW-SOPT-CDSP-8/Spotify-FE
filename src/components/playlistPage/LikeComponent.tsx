@@ -3,14 +3,14 @@ import { IcLike } from '../../assets/svg/index';
 
 interface LikeComponentProps {
   likeCount: number;
+  onClick: () => void;
 }
 
-const LikeComponent = (props: LikeComponentProps) => {
-  const { likeCount } = props; // 임시로 props로 만들어뒀습니다. 기능 구현 시 수정하시면 됩니다!
+const LikeComponent = ({ likeCount, onClick }: LikeComponentProps) => {
   return (
     <>
       <TextContainer>좋아요 {likeCount}개 · 1시간 53분</TextContainer>
-      <LikeIcon />
+      <LikeIcon onClick={onClick} />
     </>
   );
 };
