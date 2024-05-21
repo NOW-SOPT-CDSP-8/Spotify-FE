@@ -6,12 +6,8 @@ import { Suspense } from 'react';
 import Loading from '../@common/loading/Loading';
 
 const RecommendStation = () => {
-  const { data, isLoading } = useGetMusicTitle();
+  const { data } = useGetMusicTitle();
   const { goPlaylist } = useEasyNavigate();
-
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
 
   return (
     <Suspense fallback={<Loading />}>
