@@ -1,16 +1,8 @@
-import axios from 'axios';
+import { get } from '../../apis/client';
 
 export const fetchProfileData = async () => {
   try {
-    const response = await axios.get(
-      `${import.meta.env.VITE_APP_BASE_URL}/api/v1/profile`,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          memberId: '1',
-        },
-      },
-    );
+    const response = await get(`api/v1/profile`);
     console.log(response);
     const { memberName, card } = response.data.data;
     return { memberName, card };

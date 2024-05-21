@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import axios from '../../../node_modules/axios/index';
 import { fetchProfileData } from './mypage_api';
 import { IcCardSampleImg } from '../../assets/svg/index';
 
