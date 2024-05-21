@@ -16,7 +16,6 @@ const RecommendStation = () => {
           <HeadLine>추천 스테이션</HeadLine>
           <Caption>선정님 좋아하는 곡과 비슷한 곡을 큐레이팅 했어요</Caption>
         </TitleContainer>
-        {/* 정안TODO predata대신 서버에서 GET해오기 */}
         <PlaylistCardListContainer>
           <PlaylistCardList datas={data?.data} onClick={goPlaylist} />
         </PlaylistCardListContainer>
