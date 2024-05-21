@@ -9,18 +9,26 @@ const MenuComponent = () => {
   const [likeCount, setLikeCount] = useState(10);
 
   const toggleLike = async () => {
+    // 에러 발생하면 롤백하기 위해 이전 상태 저장
+    const previousLiked = liked;
+    const previousLikeCount = likeCount;
+
+    // 낙관적 업데이트: 서버 요청 전에 UI를 먼저 업데이트
+    setLiked(!liked);
+    setLikeCount(likeCount + (liked ? -1 : 1));
+
     try {
       if (liked) {
         const response = await del('/api/v1/1/unliked');
         console.log('좋아요 취소');
-        setLikeCount((prevCount) => prevCount - 1);
       } else {
         const response = await post('/api/v1/1/liked');
         console.log('좋아요');
-        setLikeCount((prevCount) => prevCount + 1);
       }
-      setLiked(!liked);
     } catch (error) {
+      // 에러 발생 시 이전 상태로 되돌리기
+      setLiked(previousLiked);
+      setLikeCount(previousLikeCount);
       console.error();
     }
   };
