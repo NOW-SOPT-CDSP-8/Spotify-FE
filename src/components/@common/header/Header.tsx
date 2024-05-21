@@ -3,13 +3,15 @@ import { AppOpenBtn } from '../button/AppOpenBtn';
 import { HeaderRoot } from './HeaderWrapper';
 import Menu from '../menu/Menu';
 import useMenuOpen from '../../../hooks/menu/useMenuOpen';
+import useEasyNavigate from '../../../hooks/@common/useEasyNavigate';
 
 const Header = () => {
   const { visible, handleToggleMenu } = useMenuOpen();
+  const { goHome } = useEasyNavigate();
   return (
     <>
       <HeaderRoot>
-        <HeaderRoot.Logo />
+        <HeaderRoot.Logo onClick={goHome} />
         <HeaderMenuContainer>
           <IconButtonContainer>
             <HeaderRoot.Icon />
