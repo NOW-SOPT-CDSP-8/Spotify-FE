@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { fetchProfileData } from './mypage_api';
 import { IcCardSampleImg } from '../../assets/svg/index';
 
 interface SubscribeCardInfoProps {
@@ -11,14 +10,9 @@ interface SubscribeCardInfoProps {
 const SubscribeCardInfo = (props: SubscribeCardInfoProps) => {
   const { cardName, cardType, cardNumber } = props;
 
-  fetchProfileData();
-
   return (
     <SubscribeCardInfoWrapper>
       <CardContainer>
-        {/* <ImgContainer>
-          <img src='src/assets/png/CardImg.png' alt='subscribeCardImg' />
-        </ImgContainer> */}
         <CardSampleImgIcon />
         <TextContainer>
           <CardName>{cardName}</CardName>

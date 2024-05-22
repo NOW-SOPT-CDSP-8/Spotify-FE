@@ -4,37 +4,30 @@ import SubscribeCardInfo from './SubscribeCardInfo';
 import InfoButton from './InfoButton';
 import { IcFlatrate, IcPayment } from '../../assets/svg';
 import { useEffect, useState } from 'react';
-import { fetchProfileData } from './mypage_api';
+import { useGetProfile } from '../../hooks/queries/useGetProfileData';
 
 const Subscribe = () => {
-  const [memberName, setMemberName] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [cardData, setCardData] = useState({});
   const [cardName, setCardName] = useState('');
   const [cardNumber, setCardNumber] = useState('');
   const [cardType, setCardType] = useState('');
 
+  const { data, error, isLoading } = useGetProfile();
+
   useEffect(() => {
-    const getData = async () => {
-      const data = await fetchProfileData();
-      if (data) {
-        const { memberName, card } = data;
+    if (data) {
+      setFirstName(data.memberName.slice(1));
+      setLastName(data.memberName[0]);
+      setCardName(data.card.cardName);
+      setCardNumber(data.card.cardNumber);
+      setCardType(data.card.cardType);
+    }
+  }, [data]);
 
-        const firstName = memberName.slice(1);
-        const lastName = memberName[0];
-
-        setMemberName(memberName);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setCardName(card.cardName);
-        setCardType(card.cardType);
-        setCardNumber(card.cardNumber);
-      }
-    };
-
-    getData();
-  }, []);
+  console.log('Data:', data);
+  console.log('Error:', error);
+  console.log('Loading:', isLoading);
 
   return (
     <SubscribeWrapper>
