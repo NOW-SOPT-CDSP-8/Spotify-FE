@@ -7,7 +7,6 @@ interface LikeComponentProps {
 }
 
 const LikeComponent = ({ likeCount, onClick }: LikeComponentProps) => {
-  // const { likeCount } = props; // 임시로 props로 만들어뒀습니다. 기능 구현 시 수정하시면 됩니다!
   return (
     <>
       <TextContainer>좋아요 {likeCount}개 · 1시간 53분</TextContainer>
