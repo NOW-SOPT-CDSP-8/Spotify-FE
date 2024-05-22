@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IcCardSampleImg } from '../../assets/svg/index';
+import { IcCardSampleImg } from '../../assets/svg';
 
 interface SubscribeCardInfoProps {
   cardName: string;
