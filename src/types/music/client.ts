@@ -42,3 +42,5 @@ export interface getMusic {
   musicLikings: number;
   musicReleaseDate: string;
 }
+
+export type genre = 'pop' | 'philippinepop' | 'latinpop' | string;
