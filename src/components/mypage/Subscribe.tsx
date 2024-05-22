@@ -4,7 +4,7 @@ import SubscribeCardInfo from './SubscribeCardInfo';
 import InfoButton from './InfoButton';
 import { IcFlatrate, IcPayment } from '../../assets/svg';
 import { useEffect, useState } from 'react';
-import { useGetProfile } from '../../hooks/queries/useGetProfileData';
+import { useGetProfile } from '../../hooks/queries/profile';
 
 const Subscribe = () => {
   const [firstName, setFirstName] = useState('');

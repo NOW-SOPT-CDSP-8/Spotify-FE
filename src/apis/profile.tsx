@@ -1,4 +1,4 @@
-import { get } from '../../apis/client';
+import { get } from './client';
 
 export const fetchProfileData = async () => {
   try {
