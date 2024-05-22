@@ -1,26 +1,27 @@
+import { predata } from '../../../mocks/mockData';
+import { ListData } from '../../../types/music/client';
 import PlaylistCard from './PlaylistCard';
 import styled from 'styled-components';
 
-type listData = {
-  imgUrl: string;
-  title: string;
-  description?: string;
-};
-
 interface PlaylistCardListProps {
-  datas: listData[];
+  datas?: ListData[];
+  onClick?: () => void;
 }
 
-const PlaylistCardList = ({ datas }: PlaylistCardListProps) => {
+const PlaylistCardList = ({ datas = [], onClick }: PlaylistCardListProps) => {
   return (
     <PlaylistCardWrapper>
       {datas.map((data) => (
-        <PlaylistCard hasDescription={data.description ? true : false}>
-          <PlaylistCard.Img src={data.imgUrl} />
-          <PlaylistCard.Title>{data.title}</PlaylistCard.Title>
+        <PlaylistCard
+          key={data.stationId}
+          hasDescription={data.description ? true : false}
+          onClick={onClick}
+        >
+          <PlaylistCard.Img src={predata[0].imgUrl} />
+          <PlaylistCard.Title>{data.stationTitle}</PlaylistCard.Title>
           {data.description && (
             <PlaylistCard.Description>
-              {data.description}
+              {data.stationTitle}
             </PlaylistCard.Description>
           )}
         </PlaylistCard>
