@@ -11,7 +11,7 @@ import Loading from '../../components/@common/loading/Loading';
 interface CategoryPageProps {}
 
 const CategoryPage = ({}: CategoryPageProps) => {
-  const { data } = useGetMusicTitleWithPlaylist(1, 'latinpop');
+  const { data } = useGetMusicTitleWithPlaylist(1, 'pop');
 
   if (!data || !data.data) {
     return <div>데이터를 불러오지 못했습니다.</div>;
