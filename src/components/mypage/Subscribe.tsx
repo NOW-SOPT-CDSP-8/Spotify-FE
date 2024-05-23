@@ -3,46 +3,40 @@ import SubscribeInfo from './SubscribeInfo';
 import SubscribeCardInfo from './SubscribeCardInfo';
 import InfoButton from './InfoButton';
 import { IcFlatrate, IcPayment } from '../../assets/svg';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useGetProfile } from '../../hooks/queries/profile';
+import Loading from '../@common/loading/Loading';
 
 const Subscribe = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [cardName, setCardName] = useState('');
-  const [cardNumber, setCardNumber] = useState('');
-  const [cardType, setCardType] = useState('');
-
   const { data, error, isLoading } = useGetProfile();
-
-  useEffect(() => {
-    if (data) {
-      setFirstName(data.memberName.slice(1));
-      setLastName(data.memberName[0]);
-      setCardName(data.card.cardName);
-      setCardNumber(data.card.cardNumber);
-      setCardType(data.card.cardType);
-    }
-  }, [data]);
 
   console.log('Data:', data);
   console.log('Error:', error);
   console.log('Loading:', isLoading);
 
+  if (isLoading) {
+    <h1>Loading...</h1>;
+  }
+
   return (
-    <SubscribeWrapper>
-      <InfoContainer>
-        <SubscribeInfo lastName={lastName} firstName={firstName} />
-        <SubscribeCardInfo
-          cardName={cardName}
-          cardType={cardType}
-          cardNumber={cardNumber}
-        />
-        <InfoButton />
-      </InfoContainer>
-      <IcFlatrate />
-      <IcPayment />
-    </SubscribeWrapper>
+    <Suspense fallback={<Loading />}>
+      <SubscribeWrapper>
+        <InfoContainer>
+          <SubscribeInfo
+            lastName={data?.memberName[0]}
+            firstName={data?.memberName.slice(1)}
+          />
+          <SubscribeCardInfo
+            cardName={data?.card.cardName}
+            cardType={data?.card.cardType}
+            cardNumber={data?.card.cardNumber}
+          />
+          <InfoButton />
+        </InfoContainer>
+        <IcFlatrate />
+        <IcPayment />
+      </SubscribeWrapper>
+    </Suspense>
   );
 };
 
