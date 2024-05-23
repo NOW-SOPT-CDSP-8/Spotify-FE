@@ -1,22 +1,26 @@
 import styled from 'styled-components';
 import PlaylistCardList from '../@common/card/PlaylistCardList';
-import { predata2 } from '../../mocks/mockData';
+import { useGetMusicTitle } from '../../hooks/queries/music';
+import useEasyNavigate from '../../hooks/@common/useEasyNavigate';
+import { Suspense } from 'react';
+import Loading from '../@common/loading/Loading';
 
-interface RecommendStationProps {}
+const RecommendStation = () => {
+  const { data } = useGetMusicTitle();
+  const { goPlaylist } = useEasyNavigate();
 
-const RecommendStation = ({}: RecommendStationProps) => {
   return (
-    <RecommendStationWrapper>
-      <TitleContainer>
-        <HeadLine>추천 스테이션</HeadLine>
-        {/* 정안TODO 멤버ID가 1인 사람의 이름을 GET해와서 '선정님' 대신에 집어넣어줘야하나? */}
-        <Caption>선정님 좋아하는 곡과 비슷한 곡을 큐레이팅 했어요</Caption>
-      </TitleContainer>
-      {/* 정안TODO predata대신 서버에서 GET해오기 */}
-      <PlaylistCardListContainer>
-        <PlaylistCardList datas={predata2} />
-      </PlaylistCardListContainer>
-    </RecommendStationWrapper>
+    <Suspense fallback={<Loading />}>
+      <RecommendStationWrapper>
+        <TitleContainer>
+          <HeadLine>추천 스테이션</HeadLine>
+          <Caption>선정님 좋아하는 곡과 비슷한 곡을 큐레이팅 했어요</Caption>
+        </TitleContainer>
+        <PlaylistCardListContainer>
+          <PlaylistCardList datas={data?.data} onClick={goPlaylist} />
+        </PlaylistCardListContainer>
+      </RecommendStationWrapper>
+    </Suspense>
   );
 };
 

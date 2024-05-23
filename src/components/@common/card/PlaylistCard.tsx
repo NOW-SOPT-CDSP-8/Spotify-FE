@@ -4,14 +4,19 @@ import styled from 'styled-components';
 interface PlaylistCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   hasDescription: boolean;
+  onClick?: () => void;
 }
 
-const PlaylistCard = ({ children, hasDescription }: PlaylistCardProps) => {
+const PlaylistCard = ({
+  children,
+  hasDescription,
+  onClick,
+}: PlaylistCardProps) => {
   const borderRadius = hasDescription ? '0.4rem' : '0.5rem';
   const marginBottom = hasDescription ? '0.7rem' : '1rem';
 
   return (
-    <PlaylistCardWrapper>
+    <PlaylistCardWrapper onClick={onClick}>
       {React.Children.map(children, (child) => {
         // PlaylistCardImg인지 확인
         if (React.isValidElement(child) && child.type === PlaylistCardImg) {

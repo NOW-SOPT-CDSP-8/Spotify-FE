@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 import { IcHiphopCard, IcPopCard } from '../../assets/svg';
+import useEasyNavigate from '../../hooks/@common/useEasyNavigate';
 
 const RecommendGenre = () => {
+  const { goCategory } = useEasyNavigate();
   return (
     <RecommendGenreWrapper>
       <Title>선택한 아티스트 기반 장르 추천</Title>
       <CardContainer>
-        <HiphopCard />
-        <PopCard />
+        <HiphopCard onClick={goCategory} />
+        <PopCard onClick={goCategory} />
       </CardContainer>
     </RecommendGenreWrapper>
   );

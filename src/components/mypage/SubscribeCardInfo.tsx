@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { IcCardSampleImg } from '../../assets/svg';
 
 interface SubscribeCardInfoProps {
   cardName: string;
@@ -8,12 +9,11 @@ interface SubscribeCardInfoProps {
 
 const SubscribeCardInfo = (props: SubscribeCardInfoProps) => {
   const { cardName, cardType, cardNumber } = props;
+
   return (
     <SubscribeCardInfoWrapper>
       <CardContainer>
-        <ImgContainer>
-          <img src='src/assets/png/CardImg.png' alt='subscribeCardImg' />
-        </ImgContainer>
+        <CardSampleImgIcon />
         <TextContainer>
           <CardName>{cardName}</CardName>
           <CardInfo>
@@ -55,12 +55,19 @@ const ImgContainer = styled.div`
   }
 `;
 
+const CardSampleImgIcon = styled(IcCardSampleImg)`
+  width: 3.7rem;
+  height: 5.8rem;
+  flex-shrink: 0;
+`;
+
 const TextContainer = styled.div`
   ${({ theme }) =>
     theme.mixin.flexBox({
       direction: 'column',
       align: 'center',
     })};
+  width: 9rem;
 `;
 
 const CardName = styled.p`
@@ -86,6 +93,7 @@ const CardUpdateBtn = styled.button`
     theme.mixin.flexCenter({
       direction: 'column',
     })};
+  width: 10.2rem;
   padding: 0.5rem 1.6rem;
   gap: 1rem;
   border-radius: 2.9rem;
