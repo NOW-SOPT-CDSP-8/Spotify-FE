@@ -43,4 +43,11 @@ export interface getMusic {
   musicReleaseDate: string;
 }
 
+export interface GetRecentData {
+  id: number;
+  imgUrl: string;
+  title: string;
+  description: string;
+}
+
 export type genre = 'pop' | 'philippinepop' | 'latinpop' | string;

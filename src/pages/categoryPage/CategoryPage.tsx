@@ -8,6 +8,7 @@ import { useGetMusicTitleWithPlaylist } from '../../hooks/queries/music';
 import { Suspense, useState } from 'react';
 import Loading from '../../components/@common/loading/Loading';
 import { filters } from '../../constants/categoryFilter';
+import { recentData } from '../../mocks/mockData';
 
 interface CategoryPageProps {}
 
@@ -26,15 +27,16 @@ const CategoryPage = ({}: CategoryPageProps) => {
     if (index < 6) {
       setFilterId(index);
       setGenre('pop');
-      useGetMusicTitleWithPlaylist(filterId, genre);
     } else {
-      {
-        index === 6 ? setGenre('philipinepop') : setGenre('latinpop');
+      if (index === 6) {
+        setGenre('philipinepop');
+      } else {
+        setGenre('latinpop');
       }
       setFilterId(1);
     }
-    useGetMusicTitleWithPlaylist(filterId, genre);
   };
+  console.log(data.data);
   return (
     <Suspense fallback={<Loading />}>
       <CategoryHeader />
@@ -45,14 +47,14 @@ const CategoryPage = ({}: CategoryPageProps) => {
       />
       <CategoryTitle>플레이리스트</CategoryTitle>
       <CategoryContent>
-        <PlaylistCardListWithDescriptionList data={data.data} />
+        <PlaylistCardListWithDescriptionList data={data.data} playlist={true} />
       </CategoryContent>
       <CategoryTitle>최신 팝 음악</CategoryTitle>
       <CategoryContent>
-        <PlaylistCardListWithDescriptionList data={data.data} />
+        <PlaylistCardListWithDescriptionList data={recentData} recent={true} />
       </CategoryContent>
       <CategoryTitle>인기 팝 음악</CategoryTitle>
-      <CategoryRank />
+      <CategoryRank ranks={data.data.musics} />
     </Suspense>
   );
 };

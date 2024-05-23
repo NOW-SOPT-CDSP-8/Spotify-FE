@@ -72,3 +72,26 @@ export const predata2 = [
     title: 'Forest Pathway',
   },
 ];
+
+export const recentData = [
+  {
+    id: 1,
+    imgUrl: 'https://i.scdn.co/image/ab67616d00001e028ecc33f195df6aa257c39eaa',
+    title: 'The Tortured Poets Department',
+    description: 'Taylor Swift',
+  },
+  {
+    id: 2,
+    imgUrl:
+      'https://upload.wikimedia.org/wikipedia/en/2/2a/Hourglassjamestaylor.jpg',
+    title: 'Hourglass',
+    description: 'James Taylor',
+  },
+  {
+    id: 3,
+    imgUrl:
+      'https://upload.wikimedia.org/wikipedia/en/2/2a/Hourglassjamestaylor.jpg',
+    title: 'Hourglass',
+    description: 'James Taylor',
+  },
+];
