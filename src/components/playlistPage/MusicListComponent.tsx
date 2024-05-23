@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import PlayListItem from '../@common/PlayListItem';
 import useMusicInfiniteQuery from '../../hooks/queries/useMusicInfiniteQuery';
+import { Musics } from '../../types/music/client';
 
 const MusicListComponent = () => {
-  const { data, fetchNextPage, isFetchingNextPage } = useMusicInfiniteQuery();
-  const [musics, setMusics] = useState([]);
+  const { data, fetchNextPage, isFetchingNextPage } = useMusicInfiniteQuery(-1);
+  const [musics, setMusics] = useState<Musics[]>([]);
 
   useEffect(() => {
     if (data?.pages) {
@@ -15,19 +16,26 @@ const MusicListComponent = () => {
     }
   }, [data]);
 
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const bottomRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
-    const onScroll = () => {
-      const scrollHeight = document.documentElement.scrollHeight;
-      const scrollTop = document.documentElement.scrollTop;
-      const clientHeight = document.documentElement.clientHeight;
-      if (scrollTop + clientHeight >= scrollHeight) {
+    observerRef.current = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !isFetchingNextPage) {
         console.log('로딩!');
         fetchNextPage();
       }
-    };
+    });
 
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    if (bottomRef.current) {
+      observerRef.current.observe(bottomRef.current);
+    }
+
+    return () => {
+      if (observerRef.current && bottomRef.current) {
+        observerRef.current.unobserve(bottomRef.current);
+      }
+    };
   }, [isFetchingNextPage, fetchNextPage]);
 
   return (
@@ -39,6 +47,7 @@ const MusicListComponent = () => {
           artist={song.singer}
         />
       ))}
+      <BottomForScrollEvent ref={bottomRef}></BottomForScrollEvent>
     </MusicListComponentWrapper>
   );
 };
@@ -52,4 +61,8 @@ const MusicListComponentWrapper = styled.div`
     theme.mixin.flexCenter({
       direction: 'column',
     })};
+`;
+
+const BottomForScrollEvent = styled.div`
+  height: 1px;
 `;
