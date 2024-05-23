@@ -1,21 +1,24 @@
-import { useState } from 'react';
 import FilterButton from '../@common/FilterButton';
 import styled from 'styled-components';
-import { filters } from '../../constants/categoryFilter';
 
-const CategoryFilter = () => {
-  const [selectedFilter, setSelectedFilter] = useState<string>('전체');
+interface CategoryFilterProps {
+  handleFilterClick: (filter: string, index: number) => void;
+  filters: string[];
+  selectedFilter: string;
+}
 
-  const handleFilterClick = (filter: string) => {
-    setSelectedFilter(filter);
-  };
+const CategoryFilter = ({
+  handleFilterClick,
+  filters,
+  selectedFilter,
+}: CategoryFilterProps) => {
   return (
     <FilterWrapper>
-      {filters.map((filter) => (
+      {filters.map((filter, index) => (
         <FilterButton
           key={filter}
           isSelect={selectedFilter === filter}
-          onClick={() => handleFilterClick(filter)}
+          onClick={() => handleFilterClick(filter, index + 1)}
         >
           {filter}
         </FilterButton>
