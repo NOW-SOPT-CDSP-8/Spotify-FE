@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IcLike } from '../../assets/svg/index';
+import { IcClickHeart, IcLike } from '../../assets/svg/index';
 
 interface LikeComponentProps {
   likeCount: number;
@@ -10,7 +10,11 @@ const LikeComponent = ({ likeCount, onClick }: LikeComponentProps) => {
   return (
     <>
       <TextContainer>좋아요 {likeCount}개 · 1시간 53분</TextContainer>
-      <LikeIcon onClick={onClick} />
+      {likeCount === 7 ? (
+        <ClickLikeIcon onClick={onClick} />
+      ) : (
+        <LikeIcon onClick={onClick} />
+      )}
     </>
   );
 };
@@ -27,8 +31,17 @@ const TextContainer = styled.div`
 
 const LikeIcon = styled(IcLike)`
   ${({ theme }) => theme.mixin.flexCenter({})};
-  width: 48px;
-  height: 48px;
+  width: 4.8rem;
+  height: 4.8rem;
+  flex-shrink: 0;
+  margin-left: 7.1rem;
+`;
+
+const ClickLikeIcon = styled(IcClickHeart)`
+  ${({ theme }) => theme.mixin.flexCenter({})};
+  width: 4.8rem;
+  height: 4.8rem;
+  padding: 1.2rem;
   flex-shrink: 0;
   margin-left: 7.1rem;
 `;
