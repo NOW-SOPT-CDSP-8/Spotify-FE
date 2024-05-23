@@ -1,15 +1,24 @@
 import styled from 'styled-components';
 import { IcLogo2, IcMenu2, IcProfile } from '../../../assets/svg';
+import useEasyNavigate from '../../../hooks/@common/useEasyNavigate';
+import useMenuOpen from '../../../hooks/menu/useMenuOpen';
+import Menu from '../menu/Menu';
 
 const MypageHeader = () => {
+  const { goHome } = useEasyNavigate();
+  const { visible, handleToggleMenu } = useMenuOpen();
+
   return (
-    <MypageHeaderWrapper>
-      <Logo2 />
-      <IconContainer>
-        <ProfileIcon />
-        <Menu2 />
-      </IconContainer>
-    </MypageHeaderWrapper>
+    <>
+      <MypageHeaderWrapper>
+        <Logo2 onClick={goHome} />
+        <IconContainer>
+          <ProfileIcon />
+          <Menu2 onClick={handleToggleMenu} />
+        </IconContainer>
+      </MypageHeaderWrapper>
+      {visible && <Menu handleToggleMenu={handleToggleMenu} />}
+    </>
   );
 };
 
