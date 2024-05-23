@@ -7,6 +7,7 @@ import PlaylistCardListWithDescriptionList from '../../components/@common/card/P
 import { useGetMusicTitleWithPlaylist } from '../../hooks/queries/music';
 import { Suspense } from 'react';
 import Loading from '../../components/@common/loading/Loading';
+import Header from '../../components/@common/header/Header';
 
 interface CategoryPageProps {}
 
@@ -19,6 +20,7 @@ const CategoryPage = ({}: CategoryPageProps) => {
 
   return (
     <Suspense fallback={<Loading />}>
+      <Header />
       <CategoryHeader />
       <CategoryFilter />
       <CategoryTitle>플레이리스트</CategoryTitle>
