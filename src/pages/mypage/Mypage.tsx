@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 import Subscribe from '../../components/mypage/Subscribe';
+import MypageHeader from '../../components/@common/header/MypageHeader';
 
 interface MypageProps {}
 
 const Mypage = ({}: MypageProps) => {
   return (
-    <Mywrapper>
-      <Subscribe />
-    </Mywrapper>
+    <>
+      <MypageHeader />
+      <Mywrapper>
+        <Subscribe />
+      </Mywrapper>
+    </>
   );
 };
 
