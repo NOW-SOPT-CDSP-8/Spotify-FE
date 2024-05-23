@@ -6,20 +6,24 @@ import RecommendGenre from '../../components/homePage/RecommendGenre';
 import HouseMusicSection from '../../components/homePage/HouseMusicSection';
 import SimilarArtist from '../../components/homePage/SimilarArtist';
 import Subscribe from '../../components/homePage/Subscribe';
+import Header from '../../components/@common/header/Header';
 
 interface HomePageProps {}
 
 const HomePage = ({}: HomePageProps) => {
   return (
-    <HomePageWrapper>
-      <RecommendStation />
-      <ExploreSection />
-      <ArtistSection />
-      <RecommendGenre />
-      <HouseMusicSection />
-      <SimilarArtist />
-      <Subscribe />
-    </HomePageWrapper>
+    <>
+      <HomePageWrapper>
+        <Header />
+        <RecommendStation />
+        <ExploreSection />
+        <ArtistSection />
+        <RecommendGenre />
+        <HouseMusicSection />
+        <SimilarArtist />
+        <Subscribe />
+      </HomePageWrapper>
+    </>
   );
 };
 

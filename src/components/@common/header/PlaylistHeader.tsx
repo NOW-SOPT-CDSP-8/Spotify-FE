@@ -1,17 +1,19 @@
 import styled from 'styled-components';
 import { AppOpenBtn } from '../button/AppOpenBtn';
 import { HeaderRoot } from './HeaderWrapper';
-import Menu from '../menu/Menu';
-import useMenuOpen from '../../../hooks/menu/useMenuOpen';
 import useEasyNavigate from '../../../hooks/@common/useEasyNavigate';
+import useMenuOpen from '../../../hooks/menu/useMenuOpen';
+import Menu from '../menu/Menu';
+import { HeaderRootPlaylist } from './PlaylistHeaderWrapper';
 
-const Header = () => {
+const PlaylistHeader = () => {
   const { visible, handleToggleMenu } = useMenuOpen();
   const { goHome } = useEasyNavigate();
   const isPlaylistPage = window.location.pathname === '/playlist';
+
   return (
     <>
-      <HeaderRoot isPlaylistPage={isPlaylistPage}>
+      <HeaderRootPlaylist isPlaylistPage={isPlaylistPage}>
         <HeaderRoot.Logo onClick={goHome} />
         <HeaderMenuContainer>
           <IconButtonContainer>
@@ -22,13 +24,13 @@ const Header = () => {
           </IconButtonContainer>
           <HeaderRoot.Menu onClick={handleToggleMenu} />
         </HeaderMenuContainer>
-      </HeaderRoot>
+      </HeaderRootPlaylist>
       {visible && <Menu handleToggleMenu={handleToggleMenu} />}
     </>
   );
 };
 
-export default Header;
+export default PlaylistHeader;
 
 const HeaderMenuContainer = styled.article`
   ${({ theme }) => theme.mixin.flexCenter({ direction: 'row' })};

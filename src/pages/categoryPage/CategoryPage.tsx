@@ -9,6 +9,7 @@ import { Suspense, useState } from 'react';
 import Loading from '../../components/@common/loading/Loading';
 import { filters } from '../../constants/categoryFilter';
 import { ranks } from '../../mocks/mockData';
+import Header from '../../components/@common/header/Header';
 
 interface CategoryPageProps {}
 
@@ -39,6 +40,7 @@ const CategoryPage = ({}: CategoryPageProps) => {
   console.log(data.data);
   return (
     <Suspense fallback={<Loading />}>
+      <Header />
       <CategoryHeader />
       <CategoryFilter
         handleFilterClick={handleFilterClick}

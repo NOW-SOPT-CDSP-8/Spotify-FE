@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     }
     
     body {
-        background-color: ${({ theme }) => theme.colors.gray900};;
+        /* background-color: ${({ theme }) => theme.colors.gray900};; */
     }
 
     html {

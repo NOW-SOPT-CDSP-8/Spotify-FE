@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { IcLogoSingle, IcMenu, IcSearch } from '../../../assets/svg';
 import { PropsWithChildren } from 'react';
 
-const HeaderRoot = (props: PropsWithChildren<{ isPlaylistPage: boolean }>) => {
+const HeaderRootPlaylist = (
+  props: PropsWithChildren<{ isPlaylistPage: boolean }>,
+) => {
   const { children, isPlaylistPage, ...restProps } = props;
   return (
     <HeaderWrapper isPlaylistPage={isPlaylistPage} {...restProps}>
@@ -47,7 +49,7 @@ const HeaderMenu = styled(IcMenu)`
   cursor: pointer;
 `;
 
-HeaderRoot.Logo = HomeLogo;
-HeaderRoot.Icon = SearchIcon;
-HeaderRoot.Menu = HeaderMenu;
-export { HeaderRoot };
+HeaderRootPlaylist.Logo = HomeLogo;
+HeaderRootPlaylist.Icon = SearchIcon;
+HeaderRootPlaylist.Menu = HeaderMenu;
+export { HeaderRootPlaylist };
