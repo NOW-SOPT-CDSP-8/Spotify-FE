@@ -1,4 +1,3 @@
-import { FC, SVGProps } from 'react';
 import styled from 'styled-components';
 import { IcEditbox, IcRestorebox } from '../../assets/svg';
 

@@ -3,7 +3,7 @@ import SubscribeInfo from './SubscribeInfo';
 import SubscribeCardInfo from './SubscribeCardInfo';
 import InfoButton from './InfoButton';
 import { IcFlatrate, IcPayment } from '../../assets/svg';
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense } from 'react';
 import { useGetProfile } from '../../hooks/queries/profile';
 import Loading from '../@common/loading/Loading';
 
