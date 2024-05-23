@@ -1,7 +1,8 @@
+import { GetPlayListMusics } from '../types/music/client';
 import { get } from './client';
 
 export const fetchMusics = async ({ pageParam = -1 }) => {
-  const response = await get('api/v1/1/musics', {
+  const response = await get<GetPlayListMusics>('api/v1/1/musics', {
     params: {
       cursor: pageParam,
     },

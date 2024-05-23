@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { IcOption } from '../../assets/svg';
-import theme from '../../styles/theme';
 
 interface PlayListItemProps {
   title: string;

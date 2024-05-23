@@ -47,14 +47,6 @@ const CardContainer = styled.div`
   gap: 1.6rem;
 `;
 
-const ImgContainer = styled.div`
-  img {
-    width: 3.7rem;
-    height: 5.8rem;
-    flex-shrink: 0;
-  }
-`;
-
 const CardSampleImgIcon = styled(IcCardSampleImg)`
   width: 3.7rem;
   height: 5.8rem;
