@@ -23,13 +23,13 @@ const Subscribe = () => {
       <SubscribeWrapper>
         <InfoContainer>
           <SubscribeInfo
-            lastName={data?.memberName[0]}
-            firstName={data?.memberName.slice(1)}
+            lastName={data?.memberName[0] || ''}
+            firstName={data?.memberName.slice(1) || ''}
           />
           <SubscribeCardInfo
-            cardName={data?.card.cardName}
-            cardType={data?.card.cardType}
-            cardNumber={data?.card.cardNumber}
+            cardName={data?.card.cardName || ''}
+            cardType={data?.card.cardType || ''}
+            cardNumber={data?.card.cardNumber || ''}
           />
           <InfoButton />
         </InfoContainer>
