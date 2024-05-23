@@ -3,22 +3,40 @@ import SubscribeInfo from './SubscribeInfo';
 import SubscribeCardInfo from './SubscribeCardInfo';
 import InfoButton from './InfoButton';
 import { IcFlatrate, IcPayment } from '../../assets/svg';
+import { Suspense, useEffect, useState } from 'react';
+import { useGetProfile } from '../../hooks/queries/profile';
+import Loading from '../@common/loading/Loading';
 
 const Subscribe = () => {
+  const { data, error, isLoading } = useGetProfile();
+
+  console.log('Data:', data);
+  console.log('Error:', error);
+  console.log('Loading:', isLoading);
+
+  if (isLoading) {
+    <h1>Loading...</h1>;
+  }
+
   return (
-    <SubscribeWrapper>
-      <InfoContainer>
-        <SubscribeInfo lastName='성' firstName='이름' />
-        <SubscribeCardInfo
-          cardName='토스뱅크카드'
-          cardType='체크'
-          cardNumber='3705'
-        />
-        <InfoButton />
-      </InfoContainer>
-      <IcFlatrate />
-      <IcPayment />
-    </SubscribeWrapper>
+    <Suspense fallback={<Loading />}>
+      <SubscribeWrapper>
+        <InfoContainer>
+          <SubscribeInfo
+            lastName={data?.memberName[0]}
+            firstName={data?.memberName.slice(1)}
+          />
+          <SubscribeCardInfo
+            cardName={data?.card.cardName}
+            cardType={data?.card.cardType}
+            cardNumber={data?.card.cardNumber}
+          />
+          <InfoButton />
+        </InfoContainer>
+        <IcFlatrate />
+        <IcPayment />
+      </SubscribeWrapper>
+    </Suspense>
   );
 };
 

@@ -17,6 +17,7 @@ const PlaylistPage = ({}: PlaylistPageProps) => {
       <LogoComponent />
       <MenuComponent />
       <MusicListComponent />
+      <BlankSection />
       <PlayComponent />
     </PlayListPageWrapper>
   );
@@ -46,4 +47,8 @@ const CardImgContainer = styled.div`
     width: 15rem;
     height: 15rem;
   }
+`;
+
+const BlankSection = styled.div`
+  height: 8.6rem;
 `;
