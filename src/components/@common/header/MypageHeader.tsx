@@ -44,4 +44,5 @@ const Menu2 = styled(IcMenu2)`
 const IconContainer = styled.div`
   ${({ theme }) => theme.mixin.flexBox({ direction: 'row', align: 'center' })};
   gap: 0.9rem;
+  margin-right: 0.8rem;
 `;
