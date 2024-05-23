@@ -2,12 +2,16 @@ import styled from 'styled-components';
 import { IcLogoSingle, IcMenu, IcSearch } from '../../../assets/svg';
 import { PropsWithChildren } from 'react';
 
-const HeaderRoot = (props: PropsWithChildren) => {
-  const { children, ...restProps } = props;
-  return <HeaderWrapper {...restProps}> {children}</HeaderWrapper>;
+const HeaderRoot = (props: PropsWithChildren<{ isPlaylistPage: boolean }>) => {
+  const { children, isPlaylistPage, ...restProps } = props;
+  return (
+    <HeaderWrapper isPlaylistPage={isPlaylistPage} {...restProps}>
+      {children}
+    </HeaderWrapper>
+  );
 };
 
-const HeaderWrapper = styled.section`
+const HeaderWrapper = styled.section<{ isPlaylistPage: boolean }>`
   ${({ theme }) =>
     theme.mixin.flexBox({
       direction: 'row',
@@ -16,7 +20,14 @@ const HeaderWrapper = styled.section`
     })};
 
   height: 5.6rem;
-  background-color: ${({ theme }) => theme.colors.black};
+  /* background-color: ${({ theme }) => theme.colors.black}; */
+  /* background: rgba(0, 0, 0, 0.45); */
+
+  ${({ isPlaylistPage }) =>
+    isPlaylistPage &&
+    `
+    background: rgba(0, 0, 0, 0.45);
+  `}
 `;
 
 const HomeLogo = styled(IcLogoSingle)`

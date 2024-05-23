@@ -8,9 +8,10 @@ import useEasyNavigate from '../../../hooks/@common/useEasyNavigate';
 const Header = () => {
   const { visible, handleToggleMenu } = useMenuOpen();
   const { goHome } = useEasyNavigate();
+  const isPlaylistPage = window.location.pathname === '/playlist';
   return (
     <>
-      <HeaderRoot>
+      <HeaderRoot isPlaylistPage={isPlaylistPage}>
         <HeaderRoot.Logo onClick={goHome} />
         <HeaderMenuContainer>
           <IconButtonContainer>
