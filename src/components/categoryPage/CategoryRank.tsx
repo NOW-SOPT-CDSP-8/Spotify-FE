@@ -1,35 +1,14 @@
 import styled from 'styled-components';
 import PlayListItem from '../@common/PlayListItem';
 
-const CategoryRank = () => {
-  const ranks = [
-    {
-      id: 1,
-      title: "I Don't Think That I Like Her",
-      artist: 'Charlie Puth',
-    },
-    {
-      id: 2,
-      title: 'Steal The Show',
-      artist: 'Lauv',
-    },
-    {
-      id: 3,
-      title: 'Dangerously',
-      artist: 'Charlie Puth',
-    },
-    {
-      id: 4,
-      title: 'Stay',
-      artist: 'The Kid LAROI, Justin Bieber',
-    },
-    {
-      id: 5,
-      title: 'Beautiful Things',
-      artist: 'Benson Boone',
-    },
-  ];
+interface CategoryRankProps {
+  ranks: any[];
+}
 
+const CategoryRank = ({ ranks }: CategoryRankProps) => {
+  if (ranks.length >= 5) {
+    ranks.length = 5;
+  }
   return (
     <RankWrapper>
       {ranks.map((rank, index) => (
@@ -38,7 +17,8 @@ const CategoryRank = () => {
           <PlayListItem
             key={rank.id}
             title={rank.title}
-            artist={rank.artist}
+            artist={rank.description}
+            imgUrl={rank.imgUrl}
             onClick={() => {}}
           />
         </RankList>

@@ -5,32 +5,56 @@ import CategoryTitle from '../../components/categoryPage/CategoryTitle';
 import CategoryRank from '../../components/categoryPage/CategoryRank';
 import PlaylistCardListWithDescriptionList from '../../components/@common/card/PlaylistCardListWithDescriptionList';
 import { useGetMusicTitleWithPlaylist } from '../../hooks/queries/music';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import Loading from '../../components/@common/loading/Loading';
+import { filters } from '../../constants/categoryFilter';
+import { ranks } from '../../mocks/mockData';
 
 interface CategoryPageProps {}
 
 const CategoryPage = ({}: CategoryPageProps) => {
-  const { data } = useGetMusicTitleWithPlaylist(1, 'pop');
+  const [filterId, setFilterId] = useState(1);
+  const [genre, setGenre] = useState('pop');
+  const { data } = useGetMusicTitleWithPlaylist(filterId, genre);
+  const [selectedFilter, setSelectedFilter] = useState<string>('전체');
 
   if (!data || !data.data) {
     return <div>데이터를 불러오지 못했습니다.</div>;
   }
 
+  const handleFilterClick = (filter: string, index: number) => {
+    setSelectedFilter(filter);
+    if (index < 6) {
+      setFilterId(index);
+      setGenre('pop');
+    } else {
+      if (index === 6) {
+        setGenre('philipinepop');
+      } else {
+        setGenre('latinpop');
+      }
+      setFilterId(1);
+    }
+  };
+  console.log(data.data);
   return (
     <Suspense fallback={<Loading />}>
       <CategoryHeader />
-      <CategoryFilter />
+      <CategoryFilter
+        handleFilterClick={handleFilterClick}
+        filters={filters}
+        selectedFilter={selectedFilter}
+      />
       <CategoryTitle>플레이리스트</CategoryTitle>
       <CategoryContent>
-        <PlaylistCardListWithDescriptionList data={data.data} />
+        <PlaylistCardListWithDescriptionList data={data.data} playlist={true} />
       </CategoryContent>
       <CategoryTitle>최신 팝 음악</CategoryTitle>
       <CategoryContent>
-        <PlaylistCardListWithDescriptionList data={data.data} />
+        <PlaylistCardListWithDescriptionList data={data.data} recent={true} />
       </CategoryContent>
       <CategoryTitle>인기 팝 음악</CategoryTitle>
-      <CategoryRank />
+      <CategoryRank ranks={ranks} />
     </Suspense>
   );
 };
