@@ -6,6 +6,9 @@ interface CategoryRankProps {
 }
 
 const CategoryRank = ({ ranks }: CategoryRankProps) => {
+  if (ranks.length >= 5) {
+    ranks.length = 5;
+  }
   return (
     <RankWrapper>
       {ranks.map((rank, index) => (
