@@ -1,88 +1,37 @@
 import styled from 'styled-components';
-import PlaylistCardList from '../../components/@common/card/PlaylistCardList';
 import CategoryFilter from '../../components/categoryPage/CategoryFilter';
 import CategoryHeader from '../../components/categoryPage/CategoryHeader';
 import CategoryTitle from '../../components/categoryPage/CategoryTitle';
 import CategoryRank from '../../components/categoryPage/CategoryRank';
+import PlaylistCardListWithDescriptionList from '../../components/@common/card/PlaylistCardListWithDescriptionList';
+import { useGetMusicTitleWithPlaylist } from '../../hooks/queries/music';
+import { Suspense } from 'react';
+import Loading from '../../components/@common/loading/Loading';
 
 interface CategoryPageProps {}
 
-const predata = [
-  {
-    imgUrl: 'https://pbs.twimg.com/media/FYznstoXEAATx8k.jpg',
-    title: 'Sunny Beach',
-    description: 'A beautiful sunny beach with crystal clear water.',
-  },
-  {
-    imgUrl: 'https://pbs.twimg.com/media/FYznstoXEAATx8k.jpg',
-    title: 'Mountain Landscape',
-    description: 'A breathtaking view of the mountain range during sunset.',
-  },
-  {
-    imgUrl: 'https://pbs.twimg.com/media/FYznstoXEAATx8k.jpg',
-    title: 'City Skyline',
-    description: 'A panoramic view of a bustling city skyline at night.',
-  },
-  {
-    imgUrl: 'https://pbs.twimg.com/media/FYznstoXEAATx8k.jpg',
-    title: 'Forest Pathway',
-    description: 'A serene pathway through a dense forest with tall trees.',
-  },
-  {
-    imgUrl: 'https://pbs.twimg.com/media/FYznstoXEAATx8k.jpg',
-    title: 'Forest Pathway',
-    description: 'A serene pathway through a dense forest with tall trees.',
-  },
-  {
-    imgUrl: 'https://pbs.twimg.com/media/FYznstoXEAATx8k.jpg',
-    title: 'Forest Pathway',
-    description: 'A serene pathway through a dense forest with tall trees.',
-  },
-];
-
-const predata2 = [
-  {
-    imgUrl: 'https://pbs.twimg.com/media/FYznstoXEAATx8k.jpg',
-    title: 'Sunny Beach',
-  },
-  {
-    imgUrl: 'https://pbs.twimg.com/media/FYznstoXEAATx8k.jpg',
-    title: 'Mountain Landscape',
-  },
-  {
-    imgUrl: 'https://pbs.twimg.com/media/FYznstoXEAATx8k.jpg',
-    title: 'City Skyline',
-  },
-  {
-    imgUrl: 'https://pbs.twimg.com/media/FYznstoXEAATx8k.jpg',
-    title: 'Forest Pathway',
-  },
-  {
-    imgUrl: 'https://pbs.twimg.com/media/FYznstoXEAATx8k.jpg',
-    title: 'Forest Pathway',
-  },
-  {
-    imgUrl: 'https://pbs.twimg.com/media/FYznstoXEAATx8k.jpg',
-    title: 'Forest Pathway',
-  },
-];
-console.log(predata2);
 const CategoryPage = ({}: CategoryPageProps) => {
+  const { data } = useGetMusicTitleWithPlaylist(1, 'pop');
+
+  if (!data || !data.data) {
+    return <div>데이터를 불러오지 못했습니다.</div>;
+  }
+
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <CategoryHeader />
       <CategoryFilter />
       <CategoryTitle>플레이리스트</CategoryTitle>
       <CategoryContent>
-        <PlaylistCardList datas={predata} />
+        <PlaylistCardListWithDescriptionList data={data.data} />
       </CategoryContent>
       <CategoryTitle>최신 팝 음악</CategoryTitle>
       <CategoryContent>
-        <PlaylistCardList datas={predata} />
+        <PlaylistCardListWithDescriptionList data={data.data} />
       </CategoryContent>
       <CategoryTitle>인기 팝 음악</CategoryTitle>
       <CategoryRank />
-    </>
+    </Suspense>
   );
 };
 

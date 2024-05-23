@@ -19,3 +19,28 @@ export interface GetMusicTitleRes {
   stationId: number;
   stationTitle: string;
 }
+
+export interface GetFilterTitleReq {
+  status: number;
+  message: string;
+  data: GetFilterTitleRes;
+}
+
+export interface GetFilterTitleRes {
+  playlists: getPlaylist[];
+  musics: getMusic[];
+}
+
+export interface getPlaylist {
+  playlistTitle: string;
+  followers: number;
+}
+
+export interface getMusic {
+  musicTitle: string;
+  singer: string;
+  musicLikings: number;
+  musicReleaseDate: string;
+}
+
+export type genre = 'pop' | 'philippinepop' | 'latinpop' | string;

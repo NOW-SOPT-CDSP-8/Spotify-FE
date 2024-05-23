@@ -11,13 +11,16 @@ interface PlaylistCardListProps {
 const PlaylistCardList = ({ datas = [], onClick }: PlaylistCardListProps) => {
   return (
     <PlaylistCardWrapper>
-      {datas.map((data) => (
+      {datas.map((data, index) => (
         <PlaylistCard
           key={data.stationId}
           hasDescription={data.description ? true : false}
           onClick={onClick}
         >
-          <PlaylistCard.Img src={predata[0].imgUrl} />
+          <PlaylistCard.Img
+            key={data.stationId}
+            src={predata[index % predata.length].imgUrl}
+          />
           <PlaylistCard.Title>{data.stationTitle}</PlaylistCard.Title>
           {data.description && (
             <PlaylistCard.Description>
