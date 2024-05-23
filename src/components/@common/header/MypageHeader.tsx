@@ -22,6 +22,7 @@ const MypageHeaderWrapper = styled.div`
       align: 'center',
       justify: 'space-between',
     })};
+  margin-top: 0.8rem;
   margin-left: 1.5rem;
 `;
 
