@@ -6,12 +6,15 @@ import { useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 const MenuComponent = () => {
-  const [liked, setLiked] = useState(false);
+  const [liked, setLiked] = useState(true);
   const [likeCount, setLikeCount] = useState(8);
 
   const queryClient = useQueryClient();
+  const QUERY_KEY = {
+    LIKE_STATUS: 'likeStatus',
+  };
 
-  const likeMutation = useMutation({
+  const useLikeMutation = useMutation({
     mutationFn: () => post('/api/v1/1/liked'),
     onMutate: async () => {
       // 낙관적 업데이트: 서버 요청 전에 UI를 먼저 업데이트
@@ -29,11 +32,11 @@ const MenuComponent = () => {
     },
     onSettled: () => {
       // 성공 여부에 관계없이 쿼리 무효화
-      queryClient.invalidateQueries(['likeStatus']);
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEY.LIKE_STATUS] });
     },
   });
 
-  const unlikeMutation = useMutation({
+  const useUnlikeMutation = useMutation({
     mutationFn: () => del('/api/v1/1/unliked'),
     onMutate: async () => {
       // 낙관적 업데이트: 서버 요청 전에 UI를 먼저 업데이트
@@ -51,15 +54,15 @@ const MenuComponent = () => {
     },
     onSettled: () => {
       // 성공 여부에 관계없이 쿼리 무효화
-      queryClient.invalidateQueries(['likeStatus']);
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEY.LIKE_STATUS] });
     },
   });
 
   const toggleLike = () => {
     if (liked) {
-      unlikeMutation.mutate();
+      useUnlikeMutation.mutate();
     } else {
-      likeMutation.mutate();
+      useLikeMutation.mutate();
     }
   };
 

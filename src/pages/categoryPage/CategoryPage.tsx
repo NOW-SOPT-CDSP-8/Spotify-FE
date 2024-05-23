@@ -66,6 +66,7 @@ const predata2 = [
     title: 'Forest Pathway',
   },
 ];
+console.log(predata2);
 const CategoryPage = ({}: CategoryPageProps) => {
   return (
     <>
