@@ -43,4 +43,16 @@ export interface getMusic {
   musicReleaseDate: string;
 }
 
+export interface GetPlayListMusics {
+  status: number;
+  message: string;
+  data: Musics[];
+}
+
+export interface Musics {
+  musicId: number;
+  musicTitle: string;
+  singer: string;
+}
+
 export type genre = 'pop' | 'philippinepop' | 'latinpop' | string;
