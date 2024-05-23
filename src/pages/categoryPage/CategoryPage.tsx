@@ -8,7 +8,7 @@ import { useGetMusicTitleWithPlaylist } from '../../hooks/queries/music';
 import { Suspense, useState } from 'react';
 import Loading from '../../components/@common/loading/Loading';
 import { filters } from '../../constants/categoryFilter';
-import { recentData } from '../../mocks/mockData';
+import { ranks } from '../../mocks/mockData';
 
 interface CategoryPageProps {}
 
@@ -51,10 +51,10 @@ const CategoryPage = ({}: CategoryPageProps) => {
       </CategoryContent>
       <CategoryTitle>최신 팝 음악</CategoryTitle>
       <CategoryContent>
-        <PlaylistCardListWithDescriptionList data={recentData} recent={true} />
+        <PlaylistCardListWithDescriptionList data={data.data} recent={true} />
       </CategoryContent>
       <CategoryTitle>인기 팝 음악</CategoryTitle>
-      <CategoryRank ranks={data.data.musics} />
+      <CategoryRank ranks={ranks} />
     </Suspense>
   );
 };

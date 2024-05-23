@@ -73,25 +73,36 @@ export const predata2 = [
   },
 ];
 
-export const recentData = [
+export const ranks = [
   {
     id: 1,
-    imgUrl: 'https://i.scdn.co/image/ab67616d00001e028ecc33f195df6aa257c39eaa',
-    title: 'The Tortured Poets Department',
-    description: 'Taylor Swift',
+    imgUrl:
+      'https://blog.kakaocdn.net/dn/cias92/btrMKULK1BU/Ba7lz6eetr2cfljaVhySwK/img.png',
+    title: "I Don't Think That I Like Her",
+    description: 'Charlie Puth',
   },
   {
     id: 2,
-    imgUrl:
-      'https://upload.wikimedia.org/wikipedia/en/2/2a/Hourglassjamestaylor.jpg',
-    title: 'Hourglass',
-    description: 'James Taylor',
+    imgUrl: 'https://i.scdn.co/image/ab67616d0000b27322bbb2bd9c0d6bec5057d535',
+    title: 'Steal The Show',
+    description: 'Lauv',
   },
   {
     id: 3,
-    imgUrl:
-      'https://upload.wikimedia.org/wikipedia/en/2/2a/Hourglassjamestaylor.jpg',
-    title: 'Hourglass',
-    description: 'James Taylor',
+    imgUrl: 'https://i.scdn.co/image/ab67616d00001e0279ea6a5f1580c0e5aded18e9',
+    title: 'Dangerously',
+    description: 'Charlie Puth',
+  },
+  {
+    id: 4,
+    imgUrl: 'https://i.scdn.co/image/ab67616d0000b27341e31d6ea1d493dd77933ee5',
+    title: 'Stay',
+    description: 'The Kid LAROI, Justin Bieber',
+  },
+  {
+    id: 5,
+    imgUrl: 'https://i.scdn.co/image/ab67616d00001e02cc04ff3e70e146ba9abacf40',
+    title: 'Beautiful Things',
+    description: 'Benson Boone',
   },
 ];

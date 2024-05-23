@@ -5,16 +5,20 @@ import theme from '../../styles/theme';
 interface PlayListItemProps {
   title: string;
   artist: string;
+  imgUrl?: string;
   onClick: () => void;
 }
 
 const PlayListItem = (props: PlayListItemProps) => {
-  const { title, artist, onClick } = props;
+  const { title, artist, imgUrl, onClick } = props;
   return (
     <PlayListItemWrapper onClick={onClick}>
       <MusicContainer>
         <ImgContainer>
-          <img src='src/assets/png/MusicCardImg.png' alt='Album cover' />
+          <img
+            src={imgUrl ? imgUrl : 'src/assets/png/MusicCardImg.png'}
+            alt='Album cover'
+          />
         </ImgContainer>
         <TextContainer>
           <Title>{title}</Title>

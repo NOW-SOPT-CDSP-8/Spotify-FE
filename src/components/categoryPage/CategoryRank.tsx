@@ -16,8 +16,9 @@ const CategoryRank = ({ ranks }: CategoryRankProps) => {
           <Rank>{index + 1}</Rank>
           <PlayListItem
             key={rank.id}
-            title={rank.musicTitle}
-            artist={rank.singer}
+            title={rank.title}
+            artist={rank.description}
+            imgUrl={rank.imgUrl}
             onClick={() => {}}
           />
         </RankList>
