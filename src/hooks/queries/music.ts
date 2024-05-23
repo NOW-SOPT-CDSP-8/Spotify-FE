@@ -20,8 +20,9 @@ export const useGetMusicTitleWithPlaylist = (
   genre: genre,
 ) => {
   const { data, isLoading } = useQuery({
-    queryKey: QUERY_KEY.GET_PLAYLIST,
+    queryKey: [QUERY_KEY.GET_PLAYLIST, filterId, genre],
     queryFn: () => getMusicTitleWithPlaylist(filterId, genre),
+    staleTime: 0,
   });
 
   return { data, isLoading };

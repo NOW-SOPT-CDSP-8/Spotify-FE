@@ -8,6 +8,7 @@ export { default as IcArtist3 } from './IcArtist3';
 export { default as IcArtist4 } from './IcArtist4';
 export { default as IcBack } from './IcBack';
 export { default as IcCardbox } from './IcCardbox';
+export { default as IcClickHeart } from './IcClickHeart';
 export { default as IcClose } from './IcClose';
 export { default as IcDiamondbox } from './IcDiamondbox';
 export { default as IcEditbox } from './IcEditbox';
