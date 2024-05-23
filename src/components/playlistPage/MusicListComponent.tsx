@@ -4,8 +4,7 @@ import PlayListItem from '../@common/PlayListItem';
 import useMusicInfiniteQuery from '../../hooks/queries/useMusicInfiniteQuery';
 
 const MusicListComponent = () => {
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
-    useMusicInfiniteQuery();
+  const { data, fetchNextPage, isFetchingNextPage } = useMusicInfiniteQuery();
   const [musics, setMusics] = useState([]);
 
   useEffect(() => {
