@@ -4,13 +4,14 @@ import { IcClickHeart, IcLike } from '../../assets/svg/index';
 interface LikeComponentProps {
   likeCount: number;
   onClick: () => void;
+  liked: boolean;
 }
 
-const LikeComponent = ({ likeCount, onClick }: LikeComponentProps) => {
+const LikeComponent = ({ likeCount, onClick, liked }: LikeComponentProps) => {
   return (
     <>
       <TextContainer>좋아요 {likeCount}개 · 1시간 53분</TextContainer>
-      {likeCount === 7 ? (
+      {liked ? (
         <ClickLikeIcon onClick={onClick} />
       ) : (
         <LikeIcon onClick={onClick} />
