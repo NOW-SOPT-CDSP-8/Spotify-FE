@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 import PlaylistCardList from '../@common/card/PlaylistCardList';
-import { predata2 } from '../../mocks/mockData';
+import { useGetMusicTitle } from '../../hooks/queries/music';
 
 const HouseMusicSection = () => {
+  const { data } = useGetMusicTitle();
+
   return (
     <HouseMusicSectionWrapper>
       <Title>하우스 뮤직 파고들기</Title>
       <PlaylistCardListContainer>
-        <PlaylistCardList datas={predata2} />
+        <PlaylistCardList datas={data?.data} />
       </PlaylistCardListContainer>
     </HouseMusicSectionWrapper>
   );
