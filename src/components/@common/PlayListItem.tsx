@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IcOption } from '../../assets/svg';
+import { IcOption, IcPlayListItemImg } from '../../assets/svg';
 
 interface PlayListItemProps {
   title: string;
@@ -9,16 +9,11 @@ interface PlayListItemProps {
 }
 
 const PlayListItem = (props: PlayListItemProps) => {
-  const { title, artist, imgUrl, onClick } = props;
+  const { title, artist, onClick } = props;
   return (
     <PlayListItemWrapper onClick={onClick}>
       <MusicContainer>
-        <ImgContainer>
-          <img
-            src={imgUrl ? imgUrl : 'src/assets/png/MusicCardImg.png'}
-            alt='Album cover'
-          />
-        </ImgContainer>
+        <PlayListItemImg />
         <TextContainer>
           <Title>{title}</Title>
           <Artist>{artist}</Artist>
@@ -56,12 +51,10 @@ const MusicContainer = styled.div`
   flex-shrink: 0;
 `;
 
-const ImgContainer = styled.div`
-  img {
-    width: 4.6rem;
-    height: 4.6rem;
-    flex-shrink: 0;
-  }
+const PlayListItemImg = styled(IcPlayListItemImg)`
+  width: 4.6rem;
+  height: 4.6rem;
+  flex-shrink: 0;
 `;
 
 const TextContainer = styled.div`
