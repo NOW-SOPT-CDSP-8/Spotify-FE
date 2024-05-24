@@ -18,7 +18,15 @@ const PlaylistPage = ({}: PlaylistPageProps) => {
     >
       <Header />
       <PlayListPageWrapper>
-        <PlayListImg />
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <PlayListImg />
+        </div>
         <InfoComponent />
         <LogoComponent />
         <MenuComponent />
@@ -34,26 +42,20 @@ export default PlaylistPage;
 
 const PlayListPageWrapper = styled.div`
   width: 100%;
-  height: 100vh;
   flex-shrink: 0;
   gap: 0.4rem;
   overflow-y: auto;
   ${({ theme }) =>
     theme.mixin.flexBox({
       direction: 'column',
-      align: 'flex-start',
     })};
-  /* background: linear-gradient(180deg, #645e33 0%, #121212 54.3%); */
 `;
 
 const PlayListImg = styled(IcPlayListImg)`
-  width: 100%;
+  width: 15rem;
+  height: 15rem;
   margin-top: 1.1rem;
   ${({ theme }) => theme.mixin.flexCenter({ direction: 'column' })};
-  img {
-    width: 15rem;
-    height: 15rem;
-  }
 `;
 
 const BlankSection = styled.div`
