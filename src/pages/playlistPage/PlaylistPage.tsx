@@ -5,6 +5,7 @@ import MenuComponent from '../../components/playlistPage/MenuComponent';
 import MusicListComponent from '../../components/playlistPage/MusicListComponent';
 import PlayComponent from '../../components/playlistPage/PlayComponent';
 import Header from '../../components/@common/header/Header';
+import { IcPlayListImg } from '../../assets/svg';
 
 interface PlaylistPageProps {}
 
@@ -17,9 +18,7 @@ const PlaylistPage = ({}: PlaylistPageProps) => {
     >
       <Header />
       <PlayListPageWrapper>
-        <CardImgContainer>
-          <img src='src/assets/png/PlayListCard.png' alt='Album cover' />
-        </CardImgContainer>
+        <PlayListImg />
         <InfoComponent />
         <LogoComponent />
         <MenuComponent />
@@ -47,7 +46,7 @@ const PlayListPageWrapper = styled.div`
   /* background: linear-gradient(180deg, #645e33 0%, #121212 54.3%); */
 `;
 
-const CardImgContainer = styled.div`
+const PlayListImg = styled(IcPlayListImg)`
   width: 100%;
   margin-top: 1.1rem;
   ${({ theme }) => theme.mixin.flexCenter({ direction: 'column' })};

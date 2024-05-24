@@ -31,6 +31,8 @@ export { default as IcOption } from './IcOption';
 export { default as IcOrderbox } from './IcOrderbox';
 export { default as IcPayment } from './IcPayment';
 export { default as IcPlay } from './IcPlay';
+export { default as IcPlayListItemImg } from './IcPlayListItemImg';
+export { default as IcPlayListImg } from './IcPlayListImg';
 export { default as IcPopCard } from './IcPopCard';
 export { default as IcProfile } from './IcProfile';
 export { default as IcRestorebox } from './IcRestorebox';
