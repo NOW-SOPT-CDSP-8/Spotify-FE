@@ -13,8 +13,8 @@ interface HomePageProps {}
 const HomePage = ({}: HomePageProps) => {
   return (
     <>
+      <Header />
       <HomePageWrapper>
-        <Header />
         <RecommendStation />
         <ExploreSection />
         <ArtistSection />
