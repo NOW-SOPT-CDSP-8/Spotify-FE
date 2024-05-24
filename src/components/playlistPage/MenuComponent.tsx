@@ -4,9 +4,10 @@ import LikeComponent from './LikeComponent';
 import { post, del } from '../../apis/client';
 import { useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { isAxiosError } from 'axios';
 
 const MenuComponent = () => {
-  const [liked, setLiked] = useState(true);
+  const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(8);
 
   const queryClient = useQueryClient();
@@ -22,10 +23,16 @@ const MenuComponent = () => {
       setLikeCount((prevCount) => prevCount + 1);
     },
     onError: (error) => {
-      // 에러 발생 시 이전 상태로 되돌리기
       setLiked(false);
       setLikeCount((prevCount) => prevCount - 1);
-      console.error(error);
+      if (
+        isAxiosError(error) &&
+        error.response?.data?.message.includes(
+          '해당하는 회원이 이미 좋아요를 한 스테이션입니다.',
+        )
+      ) {
+        useUnlikeMutation.mutate();
+      }
     },
     onSuccess: () => {
       console.log('좋아요');
@@ -44,10 +51,16 @@ const MenuComponent = () => {
       setLikeCount((prevCount) => prevCount - 1);
     },
     onError: (error) => {
-      // 에러 발생 시 이전 상태로 되돌리기
       setLiked(true);
       setLikeCount((prevCount) => prevCount + 1);
-      console.error(error);
+      if (
+        isAxiosError(error) &&
+        error.response?.data?.message.includes(
+          '멤버와 스테이션에 해당하는 좋아요가 존재하지 않습니다.',
+        )
+      ) {
+        useLikeMutation.mutate();
+      }
     },
     onSuccess: () => {
       console.log('좋아요 취소');
@@ -66,9 +79,11 @@ const MenuComponent = () => {
     }
   };
 
+  console.log('현재 좋아요 상태: ', liked);
+
   return (
     <MenuComponentWrapper>
-      <LikeComponent likeCount={likeCount} onClick={toggleLike} />
+      <LikeComponent likeCount={likeCount} onClick={toggleLike} liked={liked} />
       <ShareIcon />
       <MenuIcon />
     </MenuComponentWrapper>
