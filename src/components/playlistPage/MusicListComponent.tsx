@@ -8,9 +8,14 @@ const MusicListComponent = () => {
   const { data, fetchNextPage, isFetchingNextPage } = useMusicInfiniteQuery(-1);
   const [musics, setMusics] = useState<Musics[]>([]);
 
+  type LastPage = {
+    items: Musics[];
+    nextPage: number | undefined;
+  };
+
   useEffect(() => {
     if (data?.pages) {
-      const newMusics = data.pages.flatMap((page) => page.items);
+      const newMusics = data.pages.flatMap((page: LastPage) => page.items);
       setMusics(newMusics);
       console.log('musics', musics);
     }
