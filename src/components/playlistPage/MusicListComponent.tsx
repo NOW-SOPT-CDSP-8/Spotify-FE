@@ -69,5 +69,5 @@ const MusicListComponentWrapper = styled.div`
 `;
 
 const BottomForScrollEvent = styled.div`
-  height: 1px;
+  height: 0.1rem;
 `;

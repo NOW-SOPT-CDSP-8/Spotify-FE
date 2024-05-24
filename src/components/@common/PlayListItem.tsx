@@ -5,13 +5,12 @@ interface PlayListItemProps {
   title: string;
   artist: string;
   imgUrl?: string;
-  onClick: () => void;
 }
 
 const PlayListItem = (props: PlayListItemProps) => {
-  const { title, artist, imgUrl, onClick } = props;
+  const { title, artist, imgUrl } = props;
   return (
-    <PlayListItemWrapper onClick={onClick}>
+    <PlayListItemWrapper>
       <MusicContainer>
         <ImgContainer>
           <img
