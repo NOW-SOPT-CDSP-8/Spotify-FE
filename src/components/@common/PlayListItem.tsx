@@ -4,14 +4,12 @@ import { IcOption, IcPlayListItemImg } from '../../assets/svg';
 interface PlayListItemProps {
   title: string;
   artist: string;
-  imgUrl?: string;
-  onClick: () => void;
 }
 
 const PlayListItem = (props: PlayListItemProps) => {
-  const { title, artist, onClick } = props;
+  const { title, artist } = props;
   return (
-    <PlayListItemWrapper onClick={onClick}>
+    <PlayListItemWrapper>
       <MusicContainer>
         <PlayListItemImg />
         <TextContainer>
