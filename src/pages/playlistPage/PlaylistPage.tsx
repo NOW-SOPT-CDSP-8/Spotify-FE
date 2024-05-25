@@ -11,30 +11,32 @@ interface PlaylistPageProps {}
 
 const PlaylistPage = ({}: PlaylistPageProps) => {
   return (
-    <div
-      style={{
-        background: 'linear-gradient(180deg, #645e33 0%, #121212 54.3%)',
-      }}
-    >
-      <Header />
-      <PlayListPageWrapper>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <PlayListImg />
-        </div>
-        <InfoComponent />
-        <LogoComponent />
-        <MenuComponent />
-        <MusicListComponent />
-        <BlankSection />
-        <PlayComponent />
-      </PlayListPageWrapper>
-    </div>
+    <>
+      <div
+        style={{
+          background: 'linear-gradient(180deg, #645e33 0%, #121212 54.3%)',
+        }}
+      >
+        <Header />
+        <PlayListPageWrapper>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <PlayListImg />
+          </div>
+          <InfoComponent />
+          <LogoComponent />
+          <MenuComponent />
+          <MusicListComponent />
+          <BlankSection />
+          <PlayComponent />
+        </PlayListPageWrapper>
+      </div>
+    </>
   );
 };
 
